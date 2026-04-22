@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>貓貓谷新人快速上手攻略 | 冒險日誌風格</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2c2418 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.05"><path fill="%23d4b87a" d="M70,30 L85,55 L70,80 L55,55 Z M120,40 L135,60 L120,80 L105,60 Z M30,90 L50,105 L30,120 L10,105 Z M160,85 L180,100 L160,115 L140,100 Z M90,140 L110,160 L90,180 L70,160 Z"/><circle cx="45" cy="150" r="8" fill="%23a7d489"/><circle cx="165" cy="45" r="10" fill="%23f5c542"/></svg>') repeat;
+            font-family: 'Quicksand', 'Segoe UI', 'Comic Neue', sans-serif;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* 右側固定收縮選單 */
+        .scroll-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            transition: all 0.3s ease;
+        }
+        .nav-toggle {
+            width: 56px;
+            height: 56px;
+            background: #ebddbc;
+            border: 2px solid #b98f54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            font-size: 28px;
+            color: #5a3e2b;
+            background: linear-gradient(145deg, #f5e5c4, #e2cfaa);
+        }
+        .nav-toggle:hover {
+            transform: scale(1.05);
+            background: linear-gradient(145deg, #ffefcf, #eedbaa);
+            border-color: #c9a153;
+        }
+        .nav-menu {
+            background: #fdf8e7;
+            border: 2px solid #c9aa6f;
+            border-radius: 28px;
+            padding: 16px 12px;
+            margin-bottom: 16px;
+            max-width: 280px;
+            width: max-content;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            pointer-events: none;
+        }
+        .nav-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-bottom: 12px;
+            text-align: right;
+        }
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+        .nav-menu a {
+            font-family: '標楷體', 'KaiTi', 'Microsoft JhengHei', serif;
+            font-weight: bold;
+            font-size: 16px;
+            color: #4e3b28;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 6px 10px;
+            border-radius: 30px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-menu a i {
+            font-size: 1.1rem;
+            color: #b96f20;
+            width: 24px;
+            text-align: center;
+        }
+        .nav-menu a:hover {
+            background: #efdfbc;
+            color: #7a4816;
+            transform: translateX(-4px);
+        }
+        @media (max-width: 720px) {
+            .scroll-nav {
+                right: 10px;
+            }
+            .nav-toggle {
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
+            }
+            .nav-menu a {
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            .nav-menu {
+                padding: 12px 8px;
+                max-width: 260px;
+            }
+        }
+
+        .slides-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .maple-slide {
+            background: #fdf8e7;
+            background-image: radial-gradient(circle at 25% 40%, rgba(210,180,140,0.1) 1.5%, transparent 1.5%);
+            background-size: 32px 32px;
+            border-radius: 20px 40px 20px 40px;
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.4), inset 0 0 0 1px #fff8e7, inset 0 0 0 3px #e2cca5;
+            border: 1px solid #c9aa6f;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+        .maple-slide:hover {
+            transform: translateY(-4px);
+        }
+
+        .maple-slide::before {
+            content: "🍂";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            font-size: 2rem;
+            opacity: 0.3;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+        .maple-slide::after {
+            content: "🍁";
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            font-size: 2rem;
+            opacity: 0.3;
+            transform: rotate(10deg);
+            pointer-events: none;
+        }
+
+        .slide-header {
+            background: #e7dbbc;
+            background: linear-gradient(135deg, #f2e5ce, #e2cfaa);
+            padding: 0.6rem 1.8rem;
+            border-bottom: 3px solid #c9a153;
+            border-radius: 16px 32px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            box-shadow: inset 0 1px 0 #fffcf0, 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .slide-header .title-icon {
+            font-size: 2rem;
+            filter: drop-shadow(1px 1px 0 #a57c3c);
+        }
+
+        .slide-header h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: #4e3b28;
+            text-shadow: 2px 2px 0 #eedbaa;
+            margin: 0;
+            word-break: keep-all;
+        }
+
+        .slide-header .page-stamp {
+            margin-left: auto;
+            background: #b68b40;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: #fef0cf;
+            font-family: monospace;
+            box-shadow: inset -1px -1px 0 #6e4e28, inset 1px 1px 0 #e9c48b;
+        }
+
+        .slide-content {
+            padding: 1.8rem 2.2rem;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: #2d281c;
+            background: rgba(253, 248, 235, 0.9);
+        }
+
+        .slide-content p, .slide-content li, .slide-content blockquote {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .slide-content a {
+            color: #b46f2a;
+            text-decoration: none;
+            border-bottom: 1px dotted #e0a46b;
+        }
+        .slide-content a:hover {
+            color: #7a4816;
+        }
+
+        .slide-content ul, .slide-content ol {
+            margin-left: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .maple-badge {
+            background: #efdfbc;
+            border-radius: 30px;
+            display: inline-block;
+            padding: 0.1rem 0.8rem;
+            font-weight: bold;
+            font-size: 0.85rem;
+            border-left: 4px solid #c9862e;
+            margin-right: 0.3rem;
+            box-shadow: inset 0 1px 0 #fffae8, 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .highlight-box {
+            background: #f7efda;
+            border-left: 12px solid #d99938;
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0;
+            border-radius: 24px;
+            box-shadow: inset 0 0 0 1px #fff4e0, 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .highlight-box::before {
+            content: "📜";
+            position: absolute;
+            left: -24px;
+            top: -10px;
+            font-size: 1.2rem;
+        }
+
+        .game-image-placeholder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 20px 0 10px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(210, 180, 140, 0.15);
+            border-radius: 32px;
+            padding: 12px 16px;
+            border: 1px dashed #c2a16b;
+        }
+
+        .game-icon-set {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #f3e8d2;
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-weight: bold;
+            color: #a5651e;
+            font-size: 1.2rem;
+            box-shadow: inset 0 1px 0 white, 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .sample-equip {
+            background: #e8dccc;
+            border-radius: 28px;
+            padding: 10px 15px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            align-items: center;
+        }
+
+        .maple-leaf-bg {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.08;
+            font-size: 5rem;
+            pointer-events: none;
+            transform: rotate(15deg);
+        }
+
+        @media (max-width: 720px) {
+            .slide-header h2 { font-size: 1rem; }
+            .slide-content { padding: 1.2rem; }
+            .maple-slide { border-radius: 20px; }
+        }
+
+        .slide-content ul li, .slide-content ol li {
+            margin-bottom: 0.4rem;
+        }
+
+        .slide-content img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 0.5rem 0;
+            border: 2px solid #e5c896;
+        }
+        .img-caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: #7a5a3a;
+            margin-top: -0.3rem;
+            margin-bottom: 0.8rem;
+        }
+        .img-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .img-row img {
+            flex: 1 1 200px;
+            min-width: 150px;
+        }
+        .img-pair {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .img-pair > div {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .jump-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0 15px;
+            padding: 5px;
+        }
+        .jump-btn {
+            background: #ebddbc;
+            border: 1px solid #b98f54;
+            color: #4e3a24;
+            font-family: '標楷體', 'KaiTi', 'Microsoft JhengHei', serif;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 8px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 0 #a17a48;
+            text-shadow: 0 1px 0 #fff2df;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .jump-btn i {
+            font-size: 1rem;
+            color: #b96f20;
+        }
+        .jump-btn:hover {
+            background: #f5e5c4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 0 #a17a48;
+        }
+        .jump-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #a17a48;
+        }
+        @media (max-width: 720px) {
+            .jump-btn {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            .jump-btn i {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 右側固定收縮選單 -->
+<div class="scroll-nav">
+    <div class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#" data-target="intro"><i class="fas fa-cat"></i> 貓貓谷介紹</a></li>
+            <li><a href="#" data-target="job"><i class="fas fa-khanda"></i> 職業選擇</a></li>
+            <li><a href="#" data-target="legion"><i class="fas fa-shield-alt"></i> 戰地/傳授</a></li>
+            <li><a href="#" data-target="start"><i class="fas fa-door-open"></i> 入谷操作</a></li>
+            <li><a href="#" data-target="reward"><i class="fas fa-gift"></i> 獎勵中心</a></li>
+            <li><a href="#" data-target="leveling"><i class="fas fa-chart-line"></i> 練等/輪系統</a></li>
+            <li><a href="#" data-target="hyper"><i class="fas fa-star"></i> 極限屬性/超技能</a></li>
+            <li><a href="#" data-target="starforce"><i class="fas fa-star-of-life"></i> 星力系統</a></li>
+            <li><a href="#" data-target="fifth"><i class="fas fa-cube"></i> 五轉V矩陣</a></li>
+            <li><a href="#" data-target="arc"><i class="fas fa-leaf"></i> ARC/AUT</a></li>
+            <li><a href="#" data-target="monsterpark"><i class="fas fa-dragon"></i> 怪物公園</a></li>
+            <li><a href="#" data-target="group"><i class="fas fa-users"></i> 組中</a></li>
+            <li><a href="#" data-target="sixth"><i class="fas fa-hexagon"></i> 六轉HEXA</a></li>
+            <li><a href="#" data-target="boss"><i class="fas fa-skull"></i> BOSS翻牌</a></li>
+            <li><a href="#" data-target="promotion"><i class="fas fa-chalkboard-user"></i> 推廣教學</a></li>
+            <li><a href="#" data-target="guild"><i class="fas fa-handshake"></i> 結尾</a></li>
+            <li><a href="#" data-target="summary"><i class="fas fa-clipboard-list"></i> 快速總結</a></li>
+            <li><a href="#" data-target="changelog"><i class="fas fa-history"></i> 更新日誌</a></li>
+        </ul>
+    </div>
+    <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-scroll"></i>
+    </div>
+</div>
+
+<div class="slides-container">
+    <!-- 封面頁 -->
+    <div class="maple-slide" id="slide-cover">
+        <div class="slide-header">
+            <span class="title-icon">🍄</span>
+            <h2>貓貓谷 × 新楓之谷 冒險手札</h2>
+            <div class="page-stamp">新手必讀・快速上手</div>
+        </div>
+        <div class="slide-content">
+            <p><span class="maple-badge">📖 簡介</span> 本篇主要提供給沒玩過<strong>新楓之谷版本</strong>（如從V113、楓星、阿泰爾之類偏舊版本）或是沒玩過私服的玩家快速上手，進入到每日環節。</p>
+            <p><i class="fas fa-maple-leaf"></i> 歡迎來到噴水池廣場，跟著這本冒險小書，一步步成為谷中高手吧！</p>
+            <div class="jump-nav">
+                <button class="jump-btn" data-target="intro"><i class="fas fa-cat"></i> 貓貓谷介紹</button>
+                <button class="jump-btn" data-target="job"><i class="fas fa-khanda"></i> 職業選擇</button>
+                <button class="jump-btn" data-target="legion"><i class="fas fa-shield-alt"></i> 戰地/傳授</button>
+                <button class="jump-btn" data-target="start"><i class="fas fa-door-open"></i> 入谷操作</button>
+                <button class="jump-btn" data-target="reward"><i class="fas fa-gift"></i> 獎勵中心</button>
+                <button class="jump-btn" data-target="leveling"><i class="fas fa-chart-line"></i> 練等/輪系統</button>
+                <button class="jump-btn" data-target="hyper"><i class="fas fa-star"></i> 極限屬性/超技能</button>
+                <button class="jump-btn" data-target="starforce"><i class="fas fa-star-of-life"></i> 星力系統</button>
+                <button class="jump-btn" data-target="fifth"><i class="fas fa-cube"></i> 五轉V矩陣</button>
+                <button class="jump-btn" data-target="arc"><i class="fas fa-leaf"></i> ARC/AUT</button>
+                <button class="jump-btn" data-target="monsterpark"><i class="fas fa-dragon"></i> 怪物公園</button>
+                <button class="jump-btn" data-target="group"><i class="fas fa-users"></i> 組中</button>
+                <button class="jump-btn" data-target="sixth"><i class="fas fa-hexagon"></i> 六轉HEXA</button>
+                <button class="jump-btn" data-target="boss"><i class="fas fa-skull"></i> BOSS翻牌</button>
+                <button class="jump-btn" data-target="promotion"><i class="fas fa-chalkboard-user"></i> 推廣教學</button>
+                <button class="jump-btn" data-target="guild"><i class="fas fa-handshake"></i> 結尾</button>
+                <button class="jump-btn" data-target="summary"><i class="fas fa-clipboard-list"></i> 快速總結</button>
+                <button class="jump-btn" data-target="changelog"><i class="fas fa-history"></i> 更新日誌</button>
+            </div>
+            <div class="game-image-placeholder">
+                <div class="game-icon-set"><i class="fas fa-maple-leaf"></i> <span>MapleStory 冒險啟程</span> <i class="fas fa-cat"></i></div>
+                <div class="game-icon-set"><i class="fas fa-crown"></i> <span>貓貓谷專屬</span> <i class="fas fa-dice-d6"></i></div>
+            </div>
+            <div class="maple-leaf-bg">🍁🍂</div>
+        </div>
+    </div>
+
+    <!-- 貓貓谷介紹 PAGE -->
+    <div class="maple-slide" id="slide-intro">
+        <div class="slide-header">
+            <span class="title-icon">🐱🏰</span>
+            <h2>貓貓谷介紹｜伺服器設定與官網</h2>
+            <div class="page-stamp">MeowMaple Info</div>
+        </div>
+        <div class="slide-content">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <img src="https://i.ibb.co/sJ6nPH2L/banner-image-1767358508.png" 
+                     alt="貓貓谷官網主視覺" 
+                     style="max-width: 100%; border-radius: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 2px solid #e5c896;"
+                     onerror="this.onerror=null; this.src='https://placehold.co/1200x400/2c2418/f5bc70?text=貓貓谷+MeowMaple';">
+                <div class="img-caption">🎨 貓貓谷官網主視覺</div>
+            </div>
+            <div class="game-image-placeholder">
+                <div class="game-icon-set"><i class="fas fa-globe"></i> <span>官方網站</span> <i class="fas fa-cat"></i></div>
+            </div>
+            <p>🌐 <strong>貓貓谷官網：</strong><a href="https://meowmaple.com/" target="_blank">https://meowmaple.com/</a></p>
+            <div class="highlight-box" style="margin-top: 1.5rem;">
+                <strong>📌 貓貓谷設定：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>⚡ 基礎遊戲經驗倍率：<strong>10倍</strong></li>
+                    <li>🎉 週末、活動、節假日遊戲經驗倍率：<strong>20倍</strong></li>
+                    <li>🍀 基礎遊戲掉落倍率：<strong>1倍</strong></li>
+                    <li>💰 基礎金幣掉落倍率：<strong>3倍</strong></li>
+                    <li>✨ <strong>特殊設定：</strong>掉落率與楓幣掉落率預設已經拉滿，不再需要任何裝備或是藥水來提高掉落率。</li>
+                </ul>
+            </div>
+            <div class="maple-quote" style="background: #f9efdb; border-radius: 32px; padding: 12px 20px; margin: 16px 0; border: 1px solid #f2daa4;">
+                <i class="fas fa-comment-dots"></i> 貓貓谷主打「好玩不花錢」，每月放送大量福利，線下聚會活動豐富，歡迎一起來冒險！
+            </div>
+            <div class="maple-leaf-bg">🐱🍁</div>
+        </div>
+    </div>
+
+    <!-- 職業選擇（已修改圖片並排，傑諾圖更換） -->
+    <div class="maple-slide" id="slide-job">
+        <div class="slide-header">
+            <span class="title-icon">🐌⚔️</span>
+            <h2>職業選擇｜新手入門推薦</h2>
+            <div class="page-stamp">Job Guide</div>
+        </div>
+        <div class="slide-content">
+            <p><strong>職業選擇：新手選擇什麼職業好？</strong><br>
+            除了神之子以外的職業都可以遊玩，目前大多職業沒有影響遊玩體驗的BUG，最推薦遊玩你喜歡的職業，如果不清楚喜歡什麼職業，也可以先隨便創一隻進行體驗。<br>
+            因為要練戰地等級與傳授技能，你會練上至少42隻角色，可以在其中慢慢尋找哪個職業是你最順手最喜歡的。</p>
+            <p>要注意的是並不是所有職業都在創角色時就決定的，如冒險家、末日反抗、皇家騎士團這些的對應分支都是統一的0轉角色，在進行一轉二轉時才進行選擇，因此轉職需要仔細查看所轉的職業是什麼。</p>
+            <p><strong>強度檔推薦職業：傑諾</strong></p>
+            <!-- 兩張圖片左右並排，大小一致 -->
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/1fkvQVrj/1.png" alt="職業選擇示意圖" style="width:100%; object-fit: contain;" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=職業選擇圖片+載入失敗';">
+                    <div class="img-caption">✨ 多種職業自由選擇</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/9kDHg0DX/7f-SS4.jpg" alt="傑諾TOP1" style="width:100%; object-fit: contain;" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=傑諾TOP1';">
+                    <div class="img-caption">🏆 傑諾 — 強度首選</div>
+                </div>
+            </div>
+            <div class="maple-leaf-bg">🍁</div>
+        </div>
+    </div>
+
+    <!-- 戰地聯盟＋傳授 -->
+    <div class="maple-slide" id="slide-legion">
+        <div class="slide-header">
+            <span class="title-icon">❄️🐧</span>
+            <h2>戰地聯盟 & 傳授技能</h2>
+            <div class="page-stamp">Legion+Link</div>
+        </div>
+        <div class="slide-content">
+            <p><span class="maple-badge">戰地聯盟：</span>以帳號最高等級的42隻角色等級加總計算，不同等級跟職業分類有不同的拼圖圖案，可以在頁面上自行搭配來增加屬性，需要找各大村莊中的屠龍會計小姐升級（噴水池廣場沒有）。</p>
+            <p><span class="maple-badge">傳授：</span>可以將角色本身固有技能提供給其他角色使用，最多可以選擇12種技能，可以很大的提升角色的能力。</p>
+            <p>📌 要練哪些推薦傳授以及推薦戰地角色卡可以查看以下介紹<br>
+            🔗 <a href="https://forum.gamer.com.tw/C.php?bsn=7650&snA=1005772" target="_blank">https://forum.gamer.com.tw/C.php?bsn=7650&snA=1005772</a></p>
+            <img src="https://i.ibb.co/S7XZxq29/2.png" alt="傳授技能配置圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=傳授圖片+載入失敗';">
+            <div class="img-caption">🔗 最多12種傳授技能，大幅提升角色能力</div>
+            <img src="https://i.ibb.co/N6V6qYWx/3.png" alt="戰地聯盟拼圖配置圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=戰地圖片+載入失敗';">
+            <div class="img-caption">⚔️ 42隻角色戰地拼圖，靈活搭配屬性</div>
+            <div class="maple-leaf-bg">🏅</div>
+        </div>
+    </div>
+
+    <!-- 入谷操作＋初始獎勵 -->
+    <div class="maple-slide" id="slide-start">
+        <div class="slide-header">
+            <span class="title-icon">🐧🎒</span>
+            <h2>入谷操作｜新手裝備＆貓貓選單</h2>
+            <div class="page-stamp">Start Up</div>
+        </div>
+        <div class="slide-content">
+            <p>✅ 優先點擊旁邊「領取入谷獎勵」NPC可以獲得初始裝備。</p>
+            <img src="https://i.ibb.co/8LYhMz3g/4.png" alt="入谷獎勵NPC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=入谷獎勵圖片+載入失敗';">
+            <div class="img-caption">🎁 領取入谷獎勵，獲得初始裝備</div>
+            <p><span class="maple-badge">入谷操作：</span>創建角色成功後，會進入到貓貓谷的主城「噴水池廣場」。所有操作基本都在此執行 : 包含角色轉職、地圖傳送、裝備製作＆強化、獎勵領取等。此時打開物品欄，在消耗欄可以看到貓貓谷最重要的道具<strong>「貓貓選單箱」</strong>。</p>
+            <div class="img-row">
+                <img src="https://i.ibb.co/xqJgsVcZ/5.png" alt="貓貓選單箱1" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=5.png';">
+                <img src="https://i.ibb.co/SXKrkHrx/6.png" alt="貓貓選單箱2" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=6.png';">
+            </div>
+            <div class="img-caption">📦 貓貓選單箱 — 轉職、傳送、強化一站式功能</div>
+            <img src="https://i.ibb.co/HLHjyqM2/7.png" alt="職業中心" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=職業中心+載入失敗';">
+            <div class="img-caption">⚙️ 職業中心：快速轉職、技能自動滿級</div>
+            <div class="highlight-box">
+                💡 職業中心：打開貓貓選單後，選擇職業中心 -> 快速轉職，可以進行一到四轉的轉職，轉職成功後會自動學習滿所有技能，不需要手動學習。<br>
+                ⚠️ 如果是天破或惡魔等特別職業會出現無法穿上副武器的情況，此時將副武器放在背包最左上角第一格，然後使用強制配戴副手即可穿上。
+            </div>
+            <div class="maple-leaf-bg">🐾</div>
+        </div>
+    </div>
+
+    <!-- 獎勵中心｜資源貨幣＆等級獎勵（已重新排版） -->
+    <div class="maple-slide" id="slide-reward">
+        <div class="slide-header">
+            <span class="title-icon">📦👻</span>
+            <h2>獎勵中心｜資源貨幣＆等級獎勵</h2>
+            <div class="page-stamp">Currency</div>
+        </div>
+        <div class="slide-content">
+            <img src="https://i.ibb.co/rRj7rWBy/8.png" alt="獎勵中心" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=獎勵中心+載入失敗';">
+            <div class="img-caption">🎁 獎勵中心：楓點與喵幣管理</div>
+            <p><span class="maple-badge">獎勵中心</span>：打開貓貓選單後選擇獎勵中心。樂豆點無用可以無視，主要使用的是<strong>楓點與喵幣</strong>。</p>
+            <p>🍁 楓點：主要獲得方式為每日BOSS積分獎勵，最多一日可獲得1150點。主要花費在每日怪公次數、楓點通行證購買、魔法靈氣洗內襯素質、購物商城消費。（首推可以一次性獲得9000楓點、吸物P寵以及其他獎勵，建議新人優先進行首推）</p>
+            <p>🐱 喵幣：主要獲得方式為充值1T：2喵幣、每日猜拳與賓果活動紅包、BOSS翻牌隨機紅包、不定時禮包獎勵紅包、排行榜中的空車獎勵紅包。主要花費在喵喵月卡、喵幣通行證、六轉靈魂加速器、喵幣商店購買、部分情況使用。</p>
+
+            <!-- 等級獎勵部分 -->
+            <p><span class="maple-badge">選擇角色等級獎勵</span> → 自動領取，把10跟30等級獎勵領一下，可以領取到重要道具：「輪迴石碑」、「鑽石無限藥水」、「經驗3倍券」、初始飾品禮盒（每個角色皆可以領取）。</p>
+            <div class="img-row">
+                <img src="https://i.ibb.co/tNC2T78/9.png" alt="輪迴石碑" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F9E0A0/7A4C1E?text=輪迴';">
+                <img src="https://i.ibb.co/nqphRCRT/10.png" alt="鑽石無限藥水" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F9E0A0/7A4C1E?text=鑽石藥水';">
+                <img src="https://i.ibb.co/4wGRJ1Kc/11.png" alt="經驗3倍券" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/200x200/F9E0A0/7A4C1E?text=3倍經驗';">
+            </div>
+            <div class="img-caption">🔑 輪迴石碑 | 💎 鑽石無限藥水 | ⚡ 經驗3倍券</div>
+
+            <!-- 禮盒與寵物部分 -->
+            <p>將消耗欄內的禮盒通通打開，穿上武器、輪迴、飾品、裝備。同時將領取到的3隻寵物全部啟用，並在寵物頁面的HP/MP處放上鑽石藥水，讓寵物幫你自動使用藥水。</p>
+            <!-- 裝備穿戴完成示意圖與寵物設定圖並排 -->
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/TBw6FkRJ/12.png" alt="裝備穿戴完成示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=裝備穿戴示意圖';">
+                    <div class="img-caption">🛡️ 裝備穿戴完成示意圖</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/mCprh6n7/13.png" alt="寵物設定圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=寵物藥水設定';">
+                    <div class="img-caption">🐕 寵物設定：HP/MP放置鑽石藥水自動補</div>
+                </div>
+            </div>
+            <div class="maple-leaf-bg">💎</div>
+        </div>
+    </div>
+
+    <!-- 練等相關＋輪系統 -->
+    <div class="maple-slide" id="slide-leveling">
+        <div class="slide-header">
+            <span class="title-icon">🍄👑</span>
+            <h2>練等路徑・輪之封印系統</h2>
+            <div class="page-stamp">Leveling</div>
+        </div>
+        <div class="slide-content">
+            <p><span class="maple-badge">練等相關</span>：利用選單中的地圖傳送 -> 練級地圖 或消耗欄中的怪物傳送石來打開野外傳送選單。依照推薦地圖練級：</p>
+            <ul>
+                <li>33等 - 土龍</li>
+                <li>80等 - 妖精</li>
+                <li>100等 - 守門人</li>
+                <li>142等 - 星光塔6</li>
+                <li>175等 - 挖掘地帶2</li>
+            </ul>
+            <img src="https://i.ibb.co/ccdJ1j8m/14.png" alt="野外地圖傳送選單" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=野外地圖傳送選單';">
+            <div class="img-caption">🗺️ 野外地圖傳送選單</div>
+            <div class="highlight-box">
+                🔮 <strong>輪相關</strong>：從一定等級地圖開始出現「XX之輪」的封印。靠近輪後按下採集鍵（空白鍵），依照提示輸入方向鍵即可解除封印，獲得輪的BUFF。只要有輪的BUFF在，都可以正常打怪獲得經驗值及道具。
+            </div>
+            <img src="https://i.ibb.co/fYQwV0Qt/15.png" alt="輪相關" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=輪相關';">
+            <div class="img-caption">🌀 地圖上的封印之輪</div>
+            <img src="https://i.ibb.co/mQ5Fvfy/16.png" alt="輪提示視窗" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=輪提示視窗';">
+            <div class="img-caption">⌨️ 輪提示視窗 — 輸入方向鍵解除封印</div>
+            <img src="https://i.ibb.co/j95w1JDT/17.png" alt="輪BUFF圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=輪BUFF';">
+            <div class="img-caption">✨ 獲得輪BUFF後經驗與掉落正常</div>
+            <div class="maple-leaf-bg">🌀</div>
+        </div>
+    </div>
+
+    <!-- 極限屬性＆超技能 -->
+    <div class="maple-slide" id="slide-hyper">
+        <div class="slide-header">
+            <span class="title-icon">🔥✨</span>
+            <h2>極限屬性 & 超技能</h2>
+            <div class="page-stamp">140+</div>
+        </div>
+        <div class="slide-content">
+            <p><span class="maple-badge">極限屬性</span>：每次升等可獲得的額外屬性點，<strong>可以花楓幣隨時重置屬性點</strong>，可以自行選擇想要增加的屬性並且可以花楓幣隨時重置，後期推薦點爆傷、BOSS傷害等增加輸出。另外在職業中心可以免費購買經驗值的極限屬性，方便練等，其他屬性則不推薦購買。每一點極限屬性非常昂貴，並且一旦有切換分頁、重置等動作，購買的極限屬性都將消失，得不償失。</p>
+            <img src="https://i.ibb.co/Y7WkKwRp/19.png" alt="極限屬性" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=極限屬性';">
+            <div class="img-caption">📊 極限屬性配置介面</div>
+            <p><span class="maple-badge">超技能</span>：分為被動以及主動。被動大多用於強化四轉的技能，這邊使用職業中心的學習技能會全都幫你點上，不需要抉擇。主動技能多數是給予無敵、綁技、增傷之類的技能，大多都擁有較長CD。（可以在地圖下方查看）</p>
+            <img src="https://i.ibb.co/4RFfvqDT/20.png" alt="超技能" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=超技能';">
+            <div class="img-caption">⚡ 超技能 — 主動被動強化戰鬥</div>
+            <div class="maple-leaf-bg">💥</div>
+        </div>
+    </div>
+
+    <!-- 星力相關系統 -->
+    <div class="maple-slide" id="slide-starforce">
+        <div class="slide-header">
+            <span class="title-icon">⭐🪐</span>
+            <h2>星力系統・神秘力量・ARC前導</h2>
+            <div class="page-stamp">StarForce</div>
+        </div>
+        <div class="slide-content">
+            <p>星力系統簡單來說就是給玩家一個限制，你必須要達到該地圖所要求的星力要求，否則就會給怪物添加減傷。星力來自玩家裝備上所顯示的星星數量，也可在角色視窗中查看總和星力數。</p>
+            <p>當來到了142等前往星光塔6時，傷害變低並出現橘色盾牌，就是星力不足。</p>
+            <img src="https://i.ibb.co/prjsN4sY/21.png" alt="傷害變低並出現橘色盾牌" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=橘色盾牌示意';">
+            <div class="img-caption">⚠️ 星力不足 → 橘色盾牌、傷害降低</div>
+            <img src="https://i.ibb.co/b5J9c0Bf/22.png" alt="當前星力數值與要求數值可在地圖下方查看" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=星力數值介面';">
+            <div class="img-caption">📍 當前星力 / 地圖需求 — 顯示於地圖下方</div>
+            <p>此時重新領取角色等級獎勵（60等、100等、140等獎勵），打開箱子裝備低階培羅德耳環+戒指+項鍊、九週年黑腰帶+項鍊+口香糖、140等手套，星力來到106滿足需求。</p>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/67F3zHzV/23.png" alt="裝備星力" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=裝備星力';">
+                    <div class="img-caption">⭐ 裝備上的星力顯示</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/27Y3XLqH/24.png" alt="角色素質頁面查看星力" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=角色素質星力';">
+                    <div class="img-caption">📋 角色素質頁面 — 查看總星力</div>
+                </div>
+            </div>
+            <img src="https://i.ibb.co/Vc7DdptR/25.png" alt="換上新裝備" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=換上新裝備';">
+            <div class="img-caption">🔧 更換新裝備（培羅德、九週年等）</div>
+            <img src="https://i.ibb.co/PvGFBc5N/26.png" alt="星力來到106滿足需求" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=星力106達標';">
+            <div class="img-caption">✅ 星力106 滿足地圖需求，傷害恢復正常</div>
+            <div class="highlight-box">
+                📍 包含星力、神秘力量（ARC、200等以上）、真實力量（AUT、260等以上）都是相同機制，不同地圖不同要求。
+            </div>
+            <div class="maple-leaf-bg">🌠</div>
+        </div>
+    </div>
+
+    <!-- 五轉相關 V矩陣 -->
+    <div class="maple-slide" id="slide-fifth">
+        <div class="slide-header">
+            <span class="title-icon">🦋✨</span>
+            <h2>五轉｜V矩陣 核心寶石</h2>
+            <div class="page-stamp">5th Job</div>
+        </div>
+        <div class="slide-content">
+            <p>當成功練等來到200等時，可以進行五轉，注意不再是點快速轉職，而是一鍵五轉。</p>
+            <img src="https://i.ibb.co/rGmCQFWY/27.png" alt="一鍵五轉" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=一鍵五轉';">
+            <div class="img-caption">⚡ 一鍵五轉功能</div>
+            <p>五轉後技能欄空白，需要利用打怪掉落的<strong>技能核心寶石</strong>獲取技能，打開V矩陣將核心放到上方凹槽中使用。</p>
+            <img src="https://i.ibb.co/hRd95ryg/29.png" alt="5轉技能是空白" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=5轉技能空白';">
+            <div class="img-caption">📭 五轉後技能欄空白</div>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/Q5s2zBM/30.png" alt="核心寶石" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=核心寶石';">
+                    <div class="img-caption">💎 技能核心寶石</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/DDfMGHMM/31.png" alt="隨機給予技能核心" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=隨機給予技能核心';">
+                    <div class="img-caption">🎲 隨機獲得技能核心</div>
+                </div>
+            </div>
+            <p>打開技能寶石後，會隨機給予技能核心。</p>
+            <p>在獲得核心後，我們需要打開V矩陣，將下方的技能核心、強化核心、特殊核心放到上方的凹槽中才能進行使用。將核心放上後，關閉矩陣頁面回到五轉技能頁面就可以看到剛剛的技能已經被添加到五轉技能頁面了。</p>
+            <img src="https://i.ibb.co/whN0SRVx/32.png" alt="將核心放上" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=將核心放上';">
+            <div class="img-caption">🔧 V矩陣 — 將核心放入凹槽</div>
+            <img src="https://i.ibb.co/ZRwj9yMt/33.png" alt="添加到五轉技能頁面" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=添加到五轉技能頁面';">
+            <div class="img-caption">📘 核心添加完成，五轉技能可用</div>
+            <p>技能核心也可以透過分解用不到的核心獲得碎片，再製作成其他技能核心。</p>
+            <p>同時技能核心也可以通過吞噬相同核心進行強化，最高等級25+額外強化等級5＝30等。</p>
+            <p>🔗 具體關於五轉矩陣系統的介紹：<a href="https://forum.gamer.com.tw/C.php?bsn=80930&snA=457" target="_blank">巴哈詳細介紹</a><br>
+            🔗 每個職業的強化核心選擇可參考：<a href="https://forum.gamer.com.tw/C.php?bsn=7650&snA=994679" target="_blank">職業核心配法</a></p>
+            <div class="maple-leaf-bg">💠</div>
+        </div>
+    </div>
+
+    <!-- ARC & AUT 相關（含快速提升ARC方法） -->
+    <div class="maple-slide" id="slide-arc">
+        <div class="slide-header">
+            <span class="title-icon">🐦🌿</span>
+            <h2>ARC & AUT 符文系統</h2>
+            <div class="page-stamp">200+ Region</div>
+        </div>
+        <div class="slide-content">
+            <p>當等級來到200等時，會出現紫色盾牌打不動怪，因為200等地圖改為使用ARC系統。</p>
+            <img src="https://i.ibb.co/9mGZ45T4/34.png" alt="ARC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=ARC';">
+            <div class="img-caption">🌀 ARC系統</div>
+            <p>在裝備頁面右下角會有個檢視符文的功能，打開後會看到6格位置。</p>
+            <img src="https://i.ibb.co/ZRSdtcN4/35.png" alt="檢視符文" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=檢視符文';">
+            <div class="img-caption">🔍 檢視符文介面</div>
+            <p>初始格子是鎖住的，需要在職業中心選擇開放ARC六格，將燈泡清除以及地圖前置都完成。</p>
+            <img src="https://i.ibb.co/DDWtj16N/36.png" alt="開放ARC六格" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=開放ARC六格';">
+            <div class="img-caption">🔓 職業中心開放ARC六格</div>
+            <p>那ARC如何獲得呢，當你領取到200等的等級獎勵、完成每日必做中的任務、打開推廣獎勵時，會獲得符文選擇券。優先將6種ARC都選擇1個交換後穿上，此時就能獲得基礎ARC屬性。</p>
+            <img src="https://i.ibb.co/5WrVM0DK/37.png" alt="符文選擇券" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=符文選擇券';">
+            <div class="img-caption">📜 符文選擇券</div>
+            <img src="https://i.ibb.co/G37D438F/38.png" alt="獲得ARC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=獲得ARC';">
+            <div class="img-caption">✨ 獲得ARC符文</div>
+            <p>而想要提升ARC就需要大量的相同符文灌注後進行成長升級，但同時也會消耗大量楓幣。</p>
+            <img src="https://i.ibb.co/qYGXmXNr/39.png" alt="消耗大量楓幣" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=消耗大量楓幣';">
+            <div class="img-caption">💰 升級ARC消耗大量楓幣</div>
+            <p>AUT系統則基本相同於ARC系統，差別在大多出現在260等及以上的地區，並且變成了使用真實符文選擇券，這個需要等級達到260後，才能從每日任務獲得。</p>
+            <img src="https://i.ibb.co/TMp7Y6Bn/40.png" alt="AUT" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=AUT';">
+            <div class="img-caption">🌌 AUT真實力量</div>
+            <img src="https://i.ibb.co/DHLMc99x/41.png" alt="真實符文選擇券" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=真實符文選擇券';">
+            <div class="img-caption">📜 真實符文選擇券 (AUT)</div>
+            <p>因此在達到200後，手動練等會較為困難，新人會出現沒有楓幣沒有裝備沒有ARC沒有技能核心的尷尬情況。此時就要靠貓貓谷的常規練等方式：怪物公園。</p>
+            <div class="highlight-box" style="margin-top: 1.5rem; border-left-color: #b68b40;">
+                <strong>⚡ 快速提升ARC方法：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>在職業中心領取聯盟硬幣後到村莊找聯盟硬幣商店，購買最下面的<strong>祕法觸媒</strong>。</li>
+                    <li>將祕法觸媒使用在至少兩等的ARC上，之後可以放到倉庫。</li>
+                    <li>利用分身的角色等級獎勵中的ARC交換券便可快速升級。</li>
+                    <li>吃滿後再傳回本尊恢復。</li>
+                </ul>
+            </div>
+            <img src="https://i.ibb.co/Y7MYrSWn/1.png" alt="快速ARC操作示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=快速ARC示意圖';">
+            <div class="img-caption">⚙️ 快速ARC操作示意圖</div>
+            <p>🎥 影片操作可以參考：<a href="https://discord.com/channels/1082631479730896937/1289625444638916679/1451928255270621286" target="_blank">Discord 教學影片連結</a>（需登入 Discord）</p>
+            <div class="maple-leaf-bg">🌙</div>
+        </div>
+    </div>
+
+    <!-- 怪物公園 -->
+    <div class="maple-slide" id="slide-monsterpark">
+        <div class="slide-header">
+            <span class="title-icon">🐲🎒</span>
+            <h2>怪物公園｜飆等直達231</h2>
+            <div class="page-stamp">Monster Park</div>
+        </div>
+        <div class="slide-content">
+            <p>進入方式：選單 -> 副本傳送 -> 特殊副本 -> 怪物公園。</p>
+            <img src="https://i.ibb.co/1G64Jwns/42.png" alt="怪公相關" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=怪公相關';">
+            <div class="img-caption">🏞️ 怪物公園入口</div>
+            <p>只要角色等級為231等以下，打一場就會直接升到231等，總共8場可達到260等。那新人要如何找怪公的團呢，主要依靠遊戲內的廣播，看廣播有人喊 「11S 怪公 -3人 可換不創」，此類廣播就過去喊++後等人組你，也可以自己開團喊廣。</p>
+            <img src="https://i.ibb.co/JWQbGb1P/43.png" alt="看廣播有人喊" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=看廣播有人喊';">
+            <div class="img-caption">📢 廣播找怪公團</div>
+            <p>也可以在組滿人後設置密碼，讓換角色的人喊對應密碼，避免出現組錯人的情況。</p>
+            <img src="https://i.ibb.co/HfpFhT0v/44.png" alt="喊對應密碼" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=喊對應密碼';">
+            <div class="img-caption">🔐 設置密碼，換角色時喊密碼</div>
+            <p>因為怪公正常都是打滿5場，即使你只想打兩場免費也請跟完，第三場之後點NPC退出即可。不要打兩場後人就跑掉了，會導致別人可能會開廣找你。</p>
+            <p>怪公都是開第三道門的最後一關，至少要190等才打得動，全組都只有35等的話是打不過的，至少要有負責輸出打怪的人。</p>
+            <img src="https://i.ibb.co/zWrbMxF0/45.png" alt="第三道門的最後一關" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=第三道門的最後一關';">
+            <div class="img-caption">🚪 第三道門 — 最終關卡</div>
+            <div class="highlight-box">
+                ⚠️ 限制：每個帳號一天只可打五場（前兩場免費＋後三場每場200楓點）。怪公經驗從260等開始驟降但仍有經驗，戰地分身亦可依此快速231等。優先推薦本尊先練到260以獲得AUT符文。
+            </div>
+            <p>❗ 不要打兩場就跑掉，請跟滿5場或至少跟完全程再退出，避免被廣播。</p>
+            <div class="maple-leaf-bg">🐾</div>
+        </div>
+    </div>
+
+    <!-- 組中 -->
+    <div class="maple-slide" id="slide-group">
+        <div class="slide-header">
+            <span class="title-icon">🧪💧</span>
+            <h2>組中｜綠水靈組隊任務 & 終極怪物公園</h2>
+            <div class="page-stamp">Party + Extreme</div>
+        </div>
+        <div class="slide-content">
+            <div class="game-image-placeholder">
+                <div class="game-icon-set"><i class="fas fa-users"></i> <span>組中＝組隊任務 + 終極怪物公園</span></div>
+            </div>
+            <h3 style="font-family:'Press Start 2P'; font-size:1rem; margin: 1rem 0 0.5rem; color:#8B5A2B;">🍀 綠水靈組隊任務</h3>
+            <p>組隊通常都是打綠水靈組隊任務2場，新人不會的話最好提前跟隊長說明，並且全程需要關閉寵撿，由隊長獲得票卷通關。</p>
+            <img src="https://i.ibb.co/kVgqbR2S/QQ20260422-131420.png" alt="綠水靈組隊任務NPC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=綠水靈組隊任務NPC';">
+            <div class="img-caption">🧑‍🌾 綠水靈組隊任務NPC</div>
+            <div class="highlight-box">
+                <strong>📜 組隊任務流程：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>圖1</strong> — 隊長有票卷可直接通過，需準備隊友人數的票，組滿六人就是需要5張票。</li>
+                    <li><strong>圖2</strong> — 需要三個人跳不同繩子上，如果螢幕出現X，表示有錯誤，依順序更換繩子直至通關。</li>
+                    <li><strong>圖3</strong> — 比照圖2需要三個人跳不同平台上，如果螢幕出現X，表示有錯誤，依順序更換繩子直至通關。</li>
+                    <li><strong>圖4</strong> — 打完怪後，由隊長撿票交給NPC通關。</li>
+                    <li><strong>圖5</strong> — 直接打怪通關。</li>
+                </ul>
+            </div>
+            <div class="highlight-box" style="border-left-color: #b68b40;">
+                <strong>🎫 隊長注意：</strong> 圖1與圖4使用的票是同一種，圖4通關只需要19張，而打完怪會總共掉落38張，可以利用隨身商店賣一半的票，等出去後再買回，就可以存19張票下次使用。
+            </div>
+            <img src="https://i.ibb.co/cKQ0pfSq/QQ20260422-131338.png" alt="通關通行證票卷" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=通關通行證票卷';">
+            <div class="img-caption">🎟️ 通關通行證票卷</div>
+            <h3 style="font-family:'Press Start 2P'; font-size:1rem; margin: 1.5rem 0 0.5rem; color:#8B5A2B;">🔥 終極怪物公園</h3>
+            <img src="https://i.ibb.co/mkRGqVh/QQ20260422-131453.png" alt="終極怪物公園" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=終極怪物公園';">
+            <div class="img-caption">⚔️ 終極怪物公園入口</div>
+            <div class="highlight-box">
+                <strong>📜 終極怪物公園流程：</strong><br>
+                進場後看畫面上顯示的是哪四種怪物，在地圖上找到並打滿要求後，在中間的祭壇按住採集按鍵讀條，讀條滿了會在地圖上隨機位置召喚BOSS。<br>
+                新人打不過可以找到BOSS後報方位，讓其他人來打。
+            </div>
+            <img src="https://i.ibb.co/M5Wy44Jc/QQ20260422-131828.png" alt="需求怪物與中央祭壇" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=需求怪物與中央祭壇';">
+            <div class="img-caption">🎯 需求怪物 & 中央祭壇</div>
+            <div class="highlight-box" style="margin-top: 1.5rem;">
+                💡 <strong>組中＝組隊+終極怪物公園</strong>，組隊通常打綠水靈組隊任務2場，新人不會需提前說明。終極怪物公園流程：打指定四種怪物後在中間祭壇採集召喚BOSS。
+            </div>
+            <img src="https://i.ibb.co/qMtSxbYV/52.png" alt="組中廣播圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=組中廣播';">
+            <div class="img-caption">📢 組中廣播範例</div>
+            <div class="maple-leaf-bg">🍀</div>
+        </div>
+    </div>
+
+    <!-- 六轉 -->
+    <div class="maple-slide" id="slide-sixth">
+        <div class="slide-header">
+            <span class="title-icon">🔮⚡</span>
+            <h2>六轉｜HEXA 系統・亞努斯</h2>
+            <div class="page-stamp">260+ 6th</div>
+        </div>
+        <div class="slide-content">
+            <p>等級達到260等時可進行六轉，使用新的HEXA系統。</p>
+            <img src="https://i.ibb.co/KpzC0Nnc/46.png" alt="HEXA系統" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=HEXA系統';">
+            <div class="img-caption">🔯 HEXA矩陣系統</div>
+            <p>除了起源、H2、雙面這三個技能外，1~4轉技能強化以及5轉技能強化都要求對應技能的五轉核心強化到滿級才能學習。這兩樣可以在部分任務以及推廣獎勵中獲得，其中碎片是物品，可以直接放在倉庫進行轉移，核心則必須要使用頁面右上角的轉移功能，但轉移會只剩下原先的30%，因此不推薦隨意轉移。</p>
+            <img src="https://i.ibb.co/k2Rx0V3S/47.png" alt="核心以及碎片" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=核心以及碎片';">
+            <div class="img-caption">🧩 六轉核心與碎片</div>
+            <p>另外核心氣息可以在春天開始往後的地圖打到，因此六轉後建議優先以點出1等亞努斯以及AUT跟裝備達到能秒春天的小怪為主，碎片則只能依靠每日任務與獎勵。</p>
+            <img src="https://i.ibb.co/pv8gMFRP/48.png" alt="春天開始" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=春天開始';">
+            <div class="img-caption">🌸 春天以後的地圖可打到核心氣息</div>
+            <p><strong>起源技能</strong>大多為綁+功能，無視抵抗強制綁王。<strong>H2技能</strong>純傷害輸出，BOSS圖可無冷放三次。<strong>雙面神-靈魂亞努斯</strong>：使用清晨模式自動攻擊，1等放1顆，10等2顆，20等3顆，額外經驗增加功能。</p>
+            <p>🔗 HEXA矩陣詳細介紹：<a href="https://bbs.nga.cn/read.php?tid=38901577&rand=625" target="_blank">NGA介紹</a> &nbsp;|&nbsp; 六轉技能順序參考：<a href="https://www.youtube.com/watch?v=6IOU4fPtvCY" target="_blank">音奈YouTube</a></p>
+            <div class="maple-leaf-bg">🔥</div>
+        </div>
+    </div>
+
+    <!-- BOSS翻牌 -->
+    <div class="maple-slide" id="slide-boss">
+        <div class="slide-header">
+            <span class="title-icon">🐤👑</span>
+            <h2>BOSS每日任務｜翻牌車流程</h2>
+            <div class="page-stamp">Boss Rush</div>
+        </div>
+        <div class="slide-content">
+            <p>以上三個任務都可以跟著翻牌車進行。</p>
+            <img src="https://i.ibb.co/C55S8nM6/49.png" alt="BOSS的三個任務" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=BOSS的三個任務';">
+            <div class="img-caption">📋 BOSS每日三個任務</div>
+            <p>多數翻牌車順序：天使綠水靈 -> 戴斯克 -> 頓凱爾 -> 希拉 -> 露西妲 -> 戴米安 -> 史烏（也有可能史烏先）。除了露西妲打3場（困+普+簡），其他都打2場（困+普），全程需要關閉寵撿，物品歸帶翻牌的人所有。</p>
+            <p>每日BOSS獨立獎勵打完對應BOSS即可獲得，每日至少打滿100分數拿滿獎勵，分數越高影響六轉核心氣息數量。BOSS翻牌獎勵在打完後需要前往頁面選擇翻牌方式，建議是使用預設的楓幣全翻+20喵幣免費+30喵幣免費，不建議使用喵幣去翻牌，喵幣建議優先花費在購買月卡+通行證+加速器上。</p>
+            <img src="https://i.ibb.co/9kB0Qs36/50.png" alt="翻牌獎勵" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=翻牌獎勵';">
+            <div class="img-caption">🎴 翻牌獎勵選擇介面</div>
+            <img src="https://i.ibb.co/zHDq5zrX/51.png" alt="翻牌車廣播圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=翻牌車廣播';">
+            <div class="img-caption">📢 翻牌車廣播範例</div>
+            <div class="maple-leaf-bg">🎴</div>
+        </div>
+    </div>
+
+    <!-- 推廣推文教學 -->
+    <div class="maple-slide" id="slide-promotion">
+        <div class="slide-header">
+            <span class="title-icon">📢💬</span>
+            <h2>推廣推文教學</h2>
+            <div class="page-stamp">Promotion Guide</div>
+        </div>
+        <div class="slide-content">
+            <div class="highlight-box" style="margin-bottom: 1rem;">
+                <strong>📌 推廣推文流程：</strong><br>
+                在官網推文介面內進行FB以及168論壇的留言，並截圖上傳至官網的推廣專區。<br>
+                選單 → 獎勵中心 → 推廣獎勵，待GM審核完可領取。
+            </div>
+            <div class="highlight-box" style="border-left-color: #d9534f;">
+                <strong>⚠️ 重要警告：</strong> 不要保存一次推文的圖片後續重複提交，GM審核查出是會有懲罰的，每日推廣完都需要重新截圖提交。
+            </div>
+
+            <p><strong>📖 詳細操作步驟：</strong></p>
+            <p>先在官網登入帳號，在右上角自己的帳號旁會有個小三角，點開會看到推文系統，點擊即可進入推文頁面。</p>
+            <img src="https://i.ibb.co/TDCPYPB1/1.png" alt="推文系統位置圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=推文系統位置圖';">
+            <div class="img-caption">🔍 推文系統位置圖</div>
+
+            <p>進入推文頁面後，首先第一點要選擇是每日推文還是首次推文。</p>
+            <div class="highlight-box" style="border-left-color: #2e7d32; background: #e8f5e9;">
+                <strong>🎁 首次推文（首推）：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>領取第一次大禮包的楓葉點數，前期普通怪物公園需要大量楓葉點數。</li>
+                    <li>榮耀系列P寵可以自行或找玩家洗成Boss傷害／經驗。</li>
+                    <li><strong class="maple-badge">注意：</strong> 首次推文必須特別註記在輸入框，若變成每日推文寶箱可以找GM協助。</li>
+                </ul>
+            </div>
+            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0;">
+                <strong>📆 每日推文：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>首推之後，每天可以持續推文，可以領取每日推廣箱子。</li>
+                    <li>每日推文獎勵包含：<strong>輪迴星火 / 黃金蘋果 / 喵喵幣</strong>。</li>
+                    <li>💡 建議保持推文累積物資，長期下來可獲得可觀資源。</li>
+                </ul>
+            </div>
+            <p>說明備註正常情況不需要填寫。但可以用來上傳截圖，可以避免每次都需要保存圖片再上傳導致的問題。</p>
+            <img src="https://i.ibb.co/Cs27RJrS/2.png" alt="推文頁面選項圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=推文頁面選項圖';">
+            <div class="img-caption">📝 推文頁面選項圖</div>
+
+            <p>再往下可以看到相關連結區，可以快速跳轉到對應的FB頁面以及168論壇頁面。同時也有提供推廣文字內容複製按鈕，點一下會自動複製當天日期以及推廣內容，將此內容在FB與168論壇回覆即可。</p>
+            <div class="img-row">
+                <img src="https://i.ibb.co/Sw6VMMs3/3.png" alt="相關連結圖" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=相關連結圖';">
+                <img src="https://i.ibb.co/DDb0sYdV/5.png" alt="推廣文字複製圖" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=推廣文字複製圖';">
+            </div>
+            <div class="img-caption">🔗 相關連結區 (左) 與 推廣文字複製按鈕 (右)</div>
+
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/xqzdJJ1y/6.png" alt="FB回覆範例" onerror="this.onerror=null; this.src='https://placehold.co/500x400/F9E0A0/7A4C1E?text=FB回覆範例';">
+                    <div class="img-caption">📘 FB回覆範例</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/sJHgZG47/7.png" alt="168回覆範例" onerror="this.onerror=null; this.src='https://placehold.co/500x400/F9E0A0/7A4C1E?text=168回覆範例';">
+                    <div class="img-caption">💬 168論壇回覆範例</div>
+                </div>
+            </div>
+
+            <p>再往下可以看到圖片上傳區，可以將所回覆的畫面截圖保存後，點擊此處上傳截圖。也可利用截圖後可以直接<kbd>CTRL+V</kbd>貼上截圖的特性，在先前的說明備註欄位直接貼上截圖，也等同上傳截圖。圖片最多上傳兩張。</p>
+            <img src="https://i.ibb.co/1fq8NQnV/4.png" alt="圖片上傳區圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=圖片上傳區圖';">
+            <div class="img-caption">🖼️ 圖片上傳區</div>
+
+            <p>兩張回覆圖片上傳完畢後即可點擊「提交推文」按鈕進行提交。</p>
+            <p>提交成功會出現成功畫面，同時頁面進入冷卻倒計時，提交歷史也會出現你的提交記錄以及GM審核記錄。</p>
+            <img src="https://i.ibb.co/TBZPXTrR/10.png" alt="提交成功圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=提交成功畫面';">
+            <div class="img-caption">✅ 提交成功畫面與冷卻計時</div>
+            <div class="maple-leaf-bg">📢</div>
+        </div>
+    </div>
+
+    <!-- 結尾 -->
+    <div class="maple-slide" id="slide-guild">
+        <div class="slide-header">
+            <span class="title-icon">🍄🤝</span>
+            <h2>結尾｜公會・裝備・交易常識</h2>
+            <div class="page-stamp">Endgame Guild</div>
+        </div>
+        <div class="slide-content">
+            <p>260等之後推薦找個公會加入，除了可找到比較固定的BOSS翻牌車、組中車、怪公車，大部分公會也有提供給新人的整套新手裝備（神秘+滅龍），可以幫助快速起家。公會通常不會主動收人，需到DC公會專區找對應聯繫人。</p>
+            <p>後續每日就是把必做任務做完，跟BOSS翻牌車領取獎勵，慢慢累積資本更換裝備，戰地42隻角色慢慢練到250等取得SSS卡。目標至少主屬達到8萬開始嘗試創世武器任務，軍團長需自己單打，主屬10萬以上較輕鬆。</p>
+            <p>⚠️ <strong>現金交易禁止</strong>：貓貓谷不允許現金交易，只能使用代斗收購。廣播常看到的「收賣幣/代斗 1:400G」是什麼意思? 買幣/代斗，也就是你跟對方要遊戲帳號後找橘貓開單，充錢到對方帳號，對方入帳後給你楓幣或對應價值物，賣幣也就是反過來對方充值到你的帳號。1:400G 就是1單：400E楓幣，1單就是1000T（台幣），1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在選單-商店-貨幣兌換裡面交換。</p>
+            <img src="https://i.ibb.co/V0DyCc1t/QQ20260422-042328.png" alt="貨幣G圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=貨幣G交易';">
+            <div class="img-caption">💱 貨幣G交易示意圖</div>
+            <div class="game-image-placeholder">
+                <i class="fas fa-users"></i> 加入公會獲取神秘+滅龍 &nbsp;|&nbsp; <i class="fas fa-hand-holding-usd"></i> 代斗交易 1:400G
+            </div>
+            <div class="maple-leaf-bg">🍁💬</div>
+        </div>
+    </div>
+
+    <!-- 快速總結 -->
+    <div class="maple-slide" id="slide-summary">
+        <div class="slide-header">
+            <span class="title-icon">🍁📜</span>
+            <h2>快速總結｜貓貓谷速成筆記</h2>
+            <div class="page-stamp">Cheat Sheet</div>
+        </div>
+        <div class="slide-content">
+            <p><strong>一、職業選擇建議</strong><br>
+            首選推薦：除了「神之子」以外，所有職業皆可正常遊玩。職業體驗：建議選擇自己喜歡的職業，因為提升「戰地等級」需練至少42隻角色。強度取向：追求極限強度推薦「傑諾」。</p>
+            <p><strong>二、入谷基礎操作</strong><br>
+            領取獎勵 -> 噴水池廣場找NPC「領取入谷獎勵」；核心工具「貓貓谷選單」；快速轉職1~4轉自動滿技；資源楓點(每日BOSS積分)、喵幣(充值活動)；必領輪迴石碑、鑽石無限藥水、經驗3倍券。</p>
+            <p><strong>三、角色成長系統</strong><br>
+            傳授技能(最多12種)，戰地聯盟(42隻角色拼圖)。極限屬性前期點經驗後期爆傷/B傷。五轉V矩陣使用核心寶石安裝技能。</p>
+            <p><strong>四、裝備與練功流程</strong><br>
+            前期路線：土龍→妖精→守門人→星光塔6→挖2。關鍵系統：輪系統解除封印，星力/ARC/AUT不足會出現盾牌。怪物公園231等以下一場直升。</p>
+            <p><strong>五、260等六轉與進階</strong><br>
+            HEXA系統含起源、H2、亞努斯(雙面神)，優先點1等亞努斯輔助練等，以及H2技能爆發。BOSS翻牌車每日100分，加入公會獲得新手裝備更輕鬆。</p>
+            <div class="game-image-placeholder">
+                <i class="fas fa-check-circle"></i> 練42戰地 <i class="fas fa-rocket"></i> 怪公直升 <i class="fas fa-gem"></i> 六轉亞努斯
+            </div>
+            <div class="highlight-box" style="margin-top: 1rem; background: #f7efda;">
+                💡 <strong>小叮嚀：</strong> 建議找個公會加入，除了能獲得免費的新手裝備（神秘+滅龍），也更容易找到 BOSS 翻牌車或組隊任務。
+            </div>
+            <div class="maple-leaf-bg">🍁🍁</div>
+        </div>
+    </div>
+
+    <!-- 更新日誌 PAGE -->
+    <div class="maple-slide" id="slide-changelog">
+        <div class="slide-header">
+            <span class="title-icon">📋🕒</span>
+            <h2>更新日誌</h2>
+            <div class="page-stamp">Changelog</div>
+        </div>
+        <div class="slide-content">
+            <div class="highlight-box" style="border-left-color: #2e7d32; background: #e8f5e9; margin-bottom: 1.5rem;">
+                <strong>📅 4/22 更新內容：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>新增</strong>
+                        <ul>
+                            <li>網頁版本上線：內容已重新整理為網頁版，可直接開啟查看圖文資訊。</li>
+                            <li>首頁跳轉功能：新增快速跳轉功能，可直達對應頁面。</li>
+                            <li>組中詳細流程：新增詳細流程說明，並更新相關網址。</li>
+                            <li>貓貓谷介紹：新增貓貓谷系統詳細介紹。</li>
+                            <li>ARC 快速升級：新增 ARC 系統快速提升攻略。</li>
+                        </ul>
+                    </li>
+                    <li><strong>修正</strong>
+                        <ul>
+                            <li>文本錯誤：修正部分文案與資訊錯誤。</li>
+                            <li>圖片位置：調整部分圖片顯示位置以利閱讀。</li>
+                            <li>移除內容：移除 Herobrine 與超強。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0;">
+                <strong>📅 4/23 更新內容：</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>新增</strong>
+                        <ul>
+                            <li>快捷卷軸選單：頁面右下角新增快捷選單，方便快速跳轉至各個目錄。</li>
+                            <li>推廣教學：新增推廣推文的詳細教學內容。</li>
+                        </ul>
+                    </li>
+                    <li><strong>修正</strong>
+                        <ul>
+                            <li>網址失效：修復部分失效的網頁連結。</li>
+                            <li>閱讀體驗：修正部分文字因字型與大小導致難以閱讀的問題。</li>
+                            <li>修改部分頁面顯示排版與圖片。</li>
+                            <li>移除內容：移除 Herobrine 與超強。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="maple-leaf-bg">📝</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 右側選單展開/收縮
+    const toggleBtn = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    toggleBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+
+    // 側邊選單跳轉功能
+    const sideLinks = document.querySelectorAll('.nav-menu a');
+    sideLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+            if (targetId) {
+                const targetSlide = document.getElementById(`slide-${targetId}`);
+                if (targetSlide) {
+                    targetSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('open');
+                }
+            }
+        });
+    });
+
+    // 原有的跳轉按鈕功能
+    (function() {
+        const buttons = document.querySelectorAll('.jump-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('data-target');
+                if (!targetId) return;
+                const targetSlide = document.getElementById(`slide-${targetId}`);
+                if (targetSlide) {
+                    targetSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
