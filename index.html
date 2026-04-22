@@ -333,11 +333,22 @@
             margin-bottom: 0.4rem;
         }
 
+        /* 一般圖片置中 */
+        .slide-content img:not(.no-center) {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* 但 .img-row 和 .img-pair 內部的圖片不應再強制置中覆蓋，它們已有flex佈局 */
+        .img-row img, .img-pair img {
+            margin: 0.5rem 0;
+        }
+
         .slide-content img {
             max-width: 100%;
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 0.5rem 0;
+            margin: 0.5rem auto;
             border: 2px solid #e5c896;
         }
         .img-caption {
@@ -1049,7 +1060,7 @@
         </div>
     </div>
 
-    <!-- 更新日誌 PAGE（已修改 4/23 內容） -->
+    <!-- 更新日誌 PAGE（已按新內容調整） -->
     <div class="maple-slide" id="slide-changelog">
         <div class="slide-header">
             <span class="title-icon">📋🕒</span>
@@ -1085,6 +1096,7 @@
                         <ul>
                             <li>快捷卷軸選單：頁面右下角新增快捷選單，方便快速跳轉至各個目錄。</li>
                             <li>推廣教學：新增推廣推文的詳細教學內容。</li>
+                            <li>網址鏡像優化：修改網址鏡像，不再跳出安全性警告，且網址固定不再變動。</li>
                         </ul>
                     </li>
                     <li><strong>修正</strong>
