@@ -378,54 +378,6 @@
             flex: 1 1 300px;
             text-align: center;
         }
-
-        .jump-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 25px 0 15px;
-            padding: 5px;
-        }
-        .jump-btn {
-            background: #ebddbc;
-            border: 1px solid #b98f54;
-            color: #4e3a24;
-            font-family: '標楷體', 'KaiTi', 'Microsoft JhengHei', serif;
-            font-weight: bold;
-            font-size: 16px;
-            padding: 8px 14px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 3px 0 #a17a48;
-            text-shadow: 0 1px 0 #fff2df;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .jump-btn i {
-            font-size: 1rem;
-            color: #b96f20;
-        }
-        .jump-btn:hover {
-            background: #f5e5c4;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 0 #a17a48;
-        }
-        .jump-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 1px 0 #a17a48;
-        }
-        @media (max-width: 720px) {
-            .jump-btn {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-            .jump-btn i {
-                font-size: 0.8rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -446,7 +398,7 @@
             <li><a href="#" data-target="arc"><i class="fas fa-leaf"></i> ARC/AUT</a></li>
             <li><a href="#" data-target="monsterpark"><i class="fas fa-dragon"></i> 怪物公園</a></li>
             <li><a href="#" data-target="group"><i class="fas fa-users"></i> 組中</a></li>
-            <li><a href="#" data-target="sixth"><i class="fas fa-hexagon"></i> 六轉HEXA</a></li>
+            <li><a href="#" data-target="sixth"><i class="fas fa-star-of-david"></i> 六轉HEXA</a></li>
             <li><a href="#" data-target="boss"><i class="fas fa-skull"></i> BOSS翻牌</a></li>
             <li><a href="#" data-target="promotion"><i class="fas fa-chalkboard-user"></i> 推廣教學</a></li>
             <li><a href="#" data-target="guild"><i class="fas fa-handshake"></i> 結尾</a></li>
@@ -469,27 +421,7 @@
         </div>
         <div class="slide-content">
             <p><span class="maple-badge">📖 簡介</span> 本篇主要提供給沒玩過<strong>新楓之谷版本</strong>（如從V113、楓星、阿泰爾之類偏舊版本）或是沒玩過私服的玩家快速上手，進入到每日環節。</p>
-            <p><i class="fas fa-maple-leaf"></i> 歡迎來到噴水池廣場，跟著這本冒險小書，一步步成為谷中高手吧！</p>
-            <div class="jump-nav">
-                <button class="jump-btn" data-target="intro"><i class="fas fa-cat"></i> 貓貓谷介紹</button>
-                <button class="jump-btn" data-target="job"><i class="fas fa-khanda"></i> 職業選擇</button>
-                <button class="jump-btn" data-target="legion"><i class="fas fa-shield-alt"></i> 戰地/傳授</button>
-                <button class="jump-btn" data-target="start"><i class="fas fa-door-open"></i> 入谷操作</button>
-                <button class="jump-btn" data-target="reward"><i class="fas fa-gift"></i> 獎勵中心</button>
-                <button class="jump-btn" data-target="leveling"><i class="fas fa-chart-line"></i> 練等/輪系統</button>
-                <button class="jump-btn" data-target="hyper"><i class="fas fa-star"></i> 極限屬性/超技能</button>
-                <button class="jump-btn" data-target="starforce"><i class="fas fa-star-of-life"></i> 星力系統</button>
-                <button class="jump-btn" data-target="fifth"><i class="fas fa-cube"></i> 五轉V矩陣</button>
-                <button class="jump-btn" data-target="arc"><i class="fas fa-leaf"></i> ARC/AUT</button>
-                <button class="jump-btn" data-target="monsterpark"><i class="fas fa-dragon"></i> 怪物公園</button>
-                <button class="jump-btn" data-target="group"><i class="fas fa-users"></i> 組中</button>
-                <button class="jump-btn" data-target="sixth"><i class="fas fa-hexagon"></i> 六轉HEXA</button>
-                <button class="jump-btn" data-target="boss"><i class="fas fa-skull"></i> BOSS翻牌</button>
-                <button class="jump-btn" data-target="promotion"><i class="fas fa-chalkboard-user"></i> 推廣教學</button>
-                <button class="jump-btn" data-target="guild"><i class="fas fa-handshake"></i> 結尾</button>
-                <button class="jump-btn" data-target="summary"><i class="fas fa-clipboard-list"></i> 快速總結</button>
-                <button class="jump-btn" data-target="changelog"><i class="fas fa-history"></i> 更新日誌</button>
-            </div>
+            <p><i class="fas fa-maple-leaf"></i> 歡迎來到貓貓谷新手冒險指南，跟著這本冒險小書，一步步成為谷中高手吧！</p>
             <div class="game-image-placeholder">
                 <div class="game-icon-set"><i class="fas fa-maple-leaf"></i> <span>MapleStory 冒險啟程</span> <i class="fas fa-cat"></i></div>
                 <div class="game-icon-set"><i class="fas fa-crown"></i> <span>貓貓谷專屬</span> <i class="fas fa-dice-d6"></i></div>
@@ -561,7 +493,7 @@
         </div>
     </div>
 
-    <!-- 戰地聯盟＋傳授（已修改鏈接顯示方式） -->
+    <!-- 戰地聯盟＋傳授 -->
     <div class="maple-slide" id="slide-legion">
         <div class="slide-header">
             <span class="title-icon">❄️🐧</span>
@@ -718,10 +650,16 @@
                     <div class="img-caption">📋 角色素質頁面 — 查看總星力</div>
                 </div>
             </div>
-            <img src="https://i.ibb.co/Vc7DdptR/25.png" alt="換上新裝備" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=換上新裝備';">
-            <div class="img-caption">🔧 更換新裝備（培羅德、九週年等）</div>
-            <img src="https://i.ibb.co/PvGFBc5N/26.png" alt="星力來到106滿足需求" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=星力106達標';">
-            <div class="img-caption">✅ 星力106 滿足地圖需求，傷害恢復正常</div>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/Vc7DdptR/25.png" alt="換上新裝備" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=換上新裝備';">
+                    <div class="img-caption">🔧 更換新裝備（培羅德、九週年等）</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/PvGFBc5N/26.png" alt="星力來到106滿足需求" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=星力106達標';">
+                    <div class="img-caption">✅ 星力106 滿足地圖需求，傷害恢復正常</div>
+                </div>
+            </div>
             <div class="highlight-box">
                 📍 包含星力、神秘力量（ARC、200等以上）、真實力量（AUT、260等以上）都是相同機制，不同地圖不同要求。
             </div>
@@ -740,20 +678,13 @@
             <p>當成功練等來到200等時，可以進行五轉，注意不再是點快速轉職，而是一鍵五轉。</p>
             <img src="https://i.ibb.co/rGmCQFWY/27.png" alt="一鍵五轉" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=一鍵五轉';">
             <div class="img-caption">⚡ 一鍵五轉功能</div>
-            <p>五轉後技能欄空白，需要利用打怪掉落的<strong>技能核心寶石</strong>獲取技能，打開V矩陣將核心放到上方凹槽中使用。</p>
-            <img src="https://i.ibb.co/hRd95ryg/29.png" alt="5轉技能是空白" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=5轉技能空白';">
-            <div class="img-caption">📭 五轉後技能欄空白</div>
-            <div class="img-pair">
-                <div>
-                    <img src="https://i.ibb.co/Q5s2zBM/30.png" alt="核心寶石" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=核心寶石';">
-                    <div class="img-caption">💎 技能核心寶石</div>
-                </div>
-                <div>
-                    <img src="https://i.ibb.co/DDfMGHMM/31.png" alt="隨機給予技能核心" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=隨機給予技能核心';">
-                    <div class="img-caption">🎲 隨機獲得技能核心</div>
-                </div>
+            <p>五轉後技能欄初始為空白，需要利用打怪掉落的<strong>技能核心寶石</strong>獲取技能，且打開技能寶石時，是隨機給予不同的技能核心。</p>
+            <div class="img-row">
+                <img src="https://i.ibb.co/hRd95ryg/29.png" alt="5轉技能是空白" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=5轉技能空白';">
+                <img src="https://i.ibb.co/Q5s2zBM/30.png" alt="核心寶石" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=核心寶石';">
+                <img src="https://i.ibb.co/DDfMGHMM/31.png" alt="隨機給予技能核心" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=隨機給予技能核心';">
             </div>
-            <p>打開技能寶石後，會隨機給予技能核心。</p>
+            <div class="img-caption">📭 五轉後技能欄空白 | 💎 技能核心寶石 | 🎲 隨機獲得技能核心</div>
             <p>在獲得核心後，我們需要打開V矩陣，將下方的技能核心、強化核心、特殊核心放到上方的凹槽中才能進行使用。將核心放上後，關閉矩陣頁面回到五轉技能頁面就可以看到剛剛的技能已經被添加到五轉技能頁面了。</p>
             <img src="https://i.ibb.co/whN0SRVx/32.png" alt="將核心放上" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=將核心放上';">
             <div class="img-caption">🔧 V矩陣 — 將核心放入凹槽</div>
@@ -767,7 +698,7 @@
         </div>
     </div>
 
-    <!-- ARC & AUT 相關（含快速提升ARC方法） -->
+    <!-- ARC & AUT 相關 -->
     <div class="maple-slide" id="slide-arc">
         <div class="slide-header">
             <span class="title-icon">🐦🌿</span>
@@ -775,28 +706,40 @@
             <div class="page-stamp">200+ Region</div>
         </div>
         <div class="slide-content">
-            <p>當等級來到200等時，會出現紫色盾牌打不動怪，因為200等地圖改為使用ARC系統。</p>
-            <img src="https://i.ibb.co/9mGZ45T4/34.png" alt="ARC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=ARC';">
-            <div class="img-caption">🌀 ARC系統</div>
-            <p>在裝備頁面右下角會有個檢視符文的功能，打開後會看到6格位置。</p>
-            <img src="https://i.ibb.co/ZRSdtcN4/35.png" alt="檢視符文" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=檢視符文';">
-            <div class="img-caption">🔍 檢視符文介面</div>
-            <p>初始格子是鎖住的，需要在職業中心選擇開放ARC六格，將燈泡清除以及地圖前置都完成。</p>
+            <p>當等級來到200等時，打怪會出現紫色盾牌，是因為200等地圖改為使用ARC符文系統。ARC頁面在裝備頁面右下角會有個檢視符文的功能，打開後會看到6格ARC位置。</p>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/9mGZ45T4/34.png" alt="ARC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=ARC';">
+                    <div class="img-caption">🌀 ARC系統</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/ZRSdtcN4/35.png" alt="檢視符文" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=檢視符文';">
+                    <div class="img-caption">🔍 檢視符文介面</div>
+                </div>
+            </div>
+            <p>初始只有1格，其他格子是鎖住的，此時需要在職業中心選擇開放ARC六格，將燈泡清除以及地圖前置內的任務都完成後才會開啟。</p>
             <img src="https://i.ibb.co/DDWtj16N/36.png" alt="開放ARC六格" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=開放ARC六格';">
             <div class="img-caption">🔓 職業中心開放ARC六格</div>
-            <p>那ARC如何獲得呢，當你領取到200等的等級獎勵、完成每日必做中的任務、打開推廣獎勵時，會獲得符文選擇券。優先將6種ARC都選擇1個交換後穿上，此時就能獲得基礎ARC屬性。</p>
-            <img src="https://i.ibb.co/5WrVM0DK/37.png" alt="符文選擇券" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=符文選擇券';">
-            <div class="img-caption">📜 符文選擇券</div>
-            <img src="https://i.ibb.co/G37D438F/38.png" alt="獲得ARC" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=獲得ARC';">
-            <div class="img-caption">✨ 獲得ARC符文</div>
+            <p>ARC獲取方式：當你領取到200等的等級獎勵、完成每日必做中的任務、打開推廣獎勵時，會獲得符文選擇券。</p>
+            <p>優先將6種ARC都選擇1個交換後穿上，此時就能獲得基礎ARC屬性。</p>
             <p>而想要提升ARC就需要大量的相同符文灌注後進行成長升級，但同時也會消耗大量楓幣。</p>
-            <img src="https://i.ibb.co/qYGXmXNr/39.png" alt="消耗大量楓幣" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=消耗大量楓幣';">
-            <div class="img-caption">💰 升級ARC消耗大量楓幣</div>
+            <div class="img-row">
+                <img src="https://i.ibb.co/5WrVM0DK/37.png" alt="符文選擇券" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=符文選擇券';">
+                <img src="https://i.ibb.co/G37D438F/38.png" alt="獲得ARC" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=獲得ARC';">
+                <img src="https://i.ibb.co/qYGXmXNr/39.png" alt="消耗大量楓幣" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=消耗大量楓幣';">
+            </div>
+            <div class="img-caption">📜 符文選擇券 | ✨ 獲得ARC符文 | 💰 升級ARC消耗大量楓幣</div>
             <p>AUT系統則基本相同於ARC系統，差別在大多出現在260等及以上的地區，並且變成了使用真實符文選擇券，這個需要等級達到260後，才能從每日任務獲得。</p>
-            <img src="https://i.ibb.co/TMp7Y6Bn/40.png" alt="AUT" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=AUT';">
-            <div class="img-caption">🌌 AUT真實力量</div>
-            <img src="https://i.ibb.co/DHLMc99x/41.png" alt="真實符文選擇券" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=真實符文選擇券';">
-            <div class="img-caption">📜 真實符文選擇券 (AUT)</div>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/TMp7Y6Bn/40.png" alt="AUT" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=AUT';">
+                    <div class="img-caption">🌌 AUT真實力量</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/DHLMc99x/41.png" alt="真實符文選擇券" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=真實符文選擇券';">
+                    <div class="img-caption">📜 真實符文選擇券 (AUT)</div>
+                </div>
+            </div>
             <p>因此在達到200後，手動練等會較為困難，新人會出現沒有楓幣沒有裝備沒有ARC沒有技能核心的尷尬情況。此時就要靠貓貓谷的常規練等方式：怪物公園。</p>
             <div class="highlight-box" style="margin-top: 1.5rem; border-left-color: #b68b40;">
                 <strong>⚡ 快速提升ARC方法：</strong>
@@ -892,30 +835,41 @@
         </div>
     </div>
 
-    <!-- 六轉 -->
+    <!-- 六轉｜HEXA 系統 -->
     <div class="maple-slide" id="slide-sixth">
         <div class="slide-header">
-            <span class="title-icon">🔮⚡</span>
+            <span class="title-icon">🔯</span>
             <h2>六轉｜HEXA 系統・亞努斯</h2>
             <div class="page-stamp">260+ 6th</div>
         </div>
         <div class="slide-content">
-            <p>等級達到260等時可進行六轉，使用新的HEXA系統。</p>
-            <img src="https://i.ibb.co/KpzC0Nnc/46.png" alt="HEXA系統" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=HEXA系統';">
-            <div class="img-caption">🔯 HEXA矩陣系統</div>
-            <p>除了起源、H2、雙面這三個技能外，1~4轉技能強化以及5轉技能強化都要求對應技能的五轉核心強化到滿級才能學習。這兩樣可以在部分任務以及推廣獎勵中獲得，其中碎片是物品，可以直接放在倉庫進行轉移，核心則必須要使用頁面右上角的轉移功能，但轉移會只剩下原先的30%，因此不推薦隨意轉移。</p>
-            <img src="https://i.ibb.co/k2Rx0V3S/47.png" alt="核心以及碎片" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=核心以及碎片';">
-            <div class="img-caption">🧩 六轉核心與碎片</div>
-            <p>另外核心氣息可以在春天開始往後的地圖打到，因此六轉後建議優先以點出1等亞努斯以及AUT跟裝備達到能秒春天的小怪為主，碎片則只能依靠每日任務與獎勵。</p>
-            <img src="https://i.ibb.co/pv8gMFRP/48.png" alt="春天開始" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=春天開始';">
+            <p>等級達到260等時可進行六轉，使用新的HEXA系統。透過消耗對應數量的氣息以及碎片來學習六轉技能。<br>
+            六轉技能中除了起源、H2、靈魂亞努斯（雙面）這三個技能外，1~4轉強化技能以及5轉強化技能都要求對應技能的五轉核心達到滿級強化才能學習。</p>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/k2Rx0V3S/47.png" alt="核心以及碎片" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=核心以及碎片';">
+                    <div class="img-caption">🧩 六轉核心與碎片</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/KpzC0Nnc/46.png" alt="HEXA系統" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=HEXA系統';">
+                    <div class="img-caption">🔯 HEXA矩陣系統</div>
+                </div>
+            </div>
+            <p>氣息以及碎片可以在每日必做任務以及推廣獎勵中獲得，其中碎片是物品，可以直接放在倉庫進行轉移，氣息則必須要使用頁面右上角的轉移功能，但轉移獲得的氣息量會只剩下原先的30%，因此不推薦隨意轉移。<br>
+            另外氣息可以在春天開始往後的AUT地圖打到，因此六轉後建議優先以點出1等亞努斯以及AUT跟裝備達到能秒春天的小怪為主要目標，碎片則只能依靠任務與獎勵獲得。</p>
+            <img src="https://i.ibb.co/pv8gMFRP/48.png" alt="春天開始往後的AUT地圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=春天開始往後的AUT地圖';">
             <div class="img-caption">🌸 春天以後的地圖可打到核心氣息</div>
-            <p><strong>起源技能</strong>大多為綁+功能，無視抵抗強制綁王。<strong>H2技能</strong>純傷害輸出，BOSS圖可無冷放三次。<strong>雙面神-靈魂亞努斯</strong>：使用清晨模式自動攻擊，1等放1顆，10等2顆，20等3顆，額外經驗增加功能。</p>
+            <div class="highlight-box">
+                <strong>⭐ 起源技能：</strong> 大多為綁+功能BUFF，可無視抵抗強制綁王。<br>
+                <strong>⚡ H2技能：</strong> 純傷害輸出，在BOSS圖可無視冷卻放三次，但整場BOSS戰也只能使用三次。<br>
+                <strong>🌙 雙面神-靈魂亞努斯：</strong> 使用清晨模式可放置球體自動攻擊，1等放1顆，10等2顆，20等3顆，且附帶經驗增加被動。
+            </div>
             <p>🔗 HEXA矩陣詳細介紹：<a href="https://bbs.nga.cn/read.php?tid=38901577&rand=625" target="_blank">NGA介紹</a> &nbsp;|&nbsp; 六轉技能順序參考：<a href="https://www.youtube.com/watch?v=6IOU4fPtvCY" target="_blank">音奈YouTube</a></p>
             <div class="maple-leaf-bg">🔥</div>
         </div>
     </div>
 
-    <!-- BOSS翻牌 -->
+    <!-- BOSS每日任務｜翻牌車流程 -->
     <div class="maple-slide" id="slide-boss">
         <div class="slide-header">
             <span class="title-icon">🐤👑</span>
@@ -923,11 +877,13 @@
             <div class="page-stamp">Boss Rush</div>
         </div>
         <div class="slide-content">
-            <p>以上三個任務都可以跟著翻牌車進行。</p>
+            <p>每日BOSS的三個任務都可以跟著翻牌車進行。其中每日BOSS積分如果有購買喵喵月卡，可以自動獲得低階BOSS積分。</p>
             <img src="https://i.ibb.co/C55S8nM6/49.png" alt="BOSS的三個任務" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=BOSS的三個任務';">
             <div class="img-caption">📋 BOSS每日三個任務</div>
             <p>多數翻牌車順序：天使綠水靈 -> 戴斯克 -> 頓凱爾 -> 希拉 -> 露西妲 -> 戴米安 -> 史烏（也有可能史烏先）。除了露西妲打3場（困+普+簡），其他都打2場（困+普），全程需要關閉寵撿，物品歸帶翻牌的人所有。</p>
-            <p>每日BOSS獨立獎勵打完對應BOSS即可獲得，每日至少打滿100分數拿滿獎勵，分數越高影響六轉核心氣息數量。BOSS翻牌獎勵在打完後需要前往頁面選擇翻牌方式，建議是使用預設的楓幣全翻+20喵幣免費+30喵幣免費，不建議使用喵幣去翻牌，喵幣建議優先花費在購買月卡+通行證+加速器上。</p>
+            <p><strong>每日BOSS獨立獎勵</strong>打完對應BOSS即可獲得，大多是給予裝備製作材料或是裝備強化硬幣。</p>
+            <p><strong>每日BOSS積分</strong>至少打滿100分數拿滿楓點獎勵，分數越高可額外獲得六轉核心氣息。</p>
+            <p><strong>每日BOSS翻牌獎勵</strong>在打完BOSS後需要前往頁面選擇翻牌方式，建議是使用預設的楓幣全翻+20喵幣免費+30喵幣免費，不建議使用喵幣去翻牌。喵幣還是建議優先花費在購買月卡+通行證+加速器上。</p>
             <img src="https://i.ibb.co/9kB0Qs36/50.png" alt="翻牌獎勵" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=翻牌獎勵';">
             <div class="img-caption">🎴 翻牌獎勵選擇介面</div>
             <img src="https://i.ibb.co/zHDq5zrX/51.png" alt="翻牌車廣播圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=翻牌車廣播';">
@@ -1038,20 +994,37 @@
         </div>
         <div class="slide-content">
             <p><strong>一、職業選擇建議</strong><br>
-            首選推薦：除了「神之子」以外，所有職業皆可正常遊玩。職業體驗：建議選擇自己喜歡的職業，因為提升「戰地等級」需練至少42隻角色。強度取向：追求極限強度推薦「傑諾」。</p>
+            除「神之子」外所有職業均可遊玩。建議選擇自己喜歡的職業，因為戰地需練42隻角色，可慢慢嘗試。強度檔推薦：傑諾。（注意：冒險家、末日反抗、皇家騎士團為0轉角色，一轉二轉時才決定分支）</p>
+
             <p><strong>二、入谷基礎操作</strong><br>
-            領取獎勵 -> 噴水池廣場找NPC「領取入谷獎勵」；核心工具「貓貓谷選單」；快速轉職1~4轉自動滿技；資源楓點(每日BOSS積分)、喵幣(充值活動)；必領輪迴石碑、鑽石無限藥水、經驗3倍券。</p>
+            創角後到「噴水池廣場」找NPC「領取入谷獎勵」取得初始裝備。核心工具：消耗欄中的「貓貓谷選單」→ 轉職、傳送、強化、獎勵。快速轉職：1~4轉自動滿技能。<br>
+            資源說明：楓點（每日BOSS積分，上限1150/日），用於怪公次數、通行證等；喵幣（充值或活動獲得），用於月卡、通行證、六轉加速器。<br>
+            必領等級獎勵（10/30/60/100/140/200等）：輪迴石碑、鑽石無限藥水、經驗3倍券、初始飾品禮盒。<br>
+            寵物設定：啟用3隻寵物，在HP/MP處放置鑽石藥水自動補血。</p>
+
             <p><strong>三、角色成長系統</strong><br>
-            傳授技能(最多12種)，戰地聯盟(42隻角色拼圖)。極限屬性前期點經驗後期爆傷/B傷。五轉V矩陣使用核心寶石安裝技能。</p>
+            傳授技能：最多套用12種其他角色的技能。戰地聯盟：42隻角色等級總和拼圖，增加屬性（找屠龍會計小姐升級）。<br>
+            極限屬性：140等開啟，可花楓幣重置，前期點經驗，後期點爆傷/B傷。<br>
+            五轉V矩陣：200等一鍵五轉，使用核心寶石獲取技能，可分解核心後使用碎片製作核心，吞噬相同核心強化。<br>
+            ARC快速升級：職業中心領聯盟硬幣 → 商店購買「祕法觸媒」→ 使用在至少2等的ARC後存倉 → 分身領取ARC交換券升級 → 傳回本尊。</p>
+
             <p><strong>四、裝備與練功流程</strong><br>
-            前期路線：土龍→妖精→守門人→星光塔6→挖2。關鍵系統：輪系統解除封印，星力/ARC/AUT不足會出現盾牌。怪物公園231等以下一場直升。</p>
-            <p><strong>五、260等六轉與進階</strong><br>
-            HEXA系統含起源、H2、亞努斯(雙面神)，優先點1等亞努斯輔助練等，以及H2技能爆發。BOSS翻牌車每日100分，加入公會獲得新手裝備更輕鬆。</p>
+            前期練等路線：33土龍 → 80妖精 → 100守門人 → 142星光塔6 → 175挖2。<br>
+            關鍵系統：輪系統（解除封印之輪後獲得BUFF才能正常獲得經驗）；星力/ARC/AUT（若出現盾牌或傷害降低，表示能力值不足，需透過裝備強化或符文灌注提升）。<br>
+            快速升級（怪物公園）：231等以下打一場直升231等，8場可達260等。找怪公團（如「11S 怪公 -3人 可換不創」），組滿6人經驗最肥。<br>
+            組中（組隊+終極怪物公園）：綠水靈組隊任務（第一關需5張票快速通關，任務流程含爬繩/跳平台、由隊長撿票）；終極怪物公園（打指定四種怪物後於祭壇採集召喚BOSS，新人可報位讓隊友打）。</p>
+
+            <p><strong>五、260等後</strong><br>
+            六轉HEXA系統：使用氣息以及碎片學習技能。核心獲得：任務或「春天」以後地圖掉落核心氣息，碎片依賴每日任務與獎勵。<br>
+            六轉技能優先：先點1等亞努斯輔助練等，再點H2技能應對BOSS爆發。<br>
+            BOSS翻牌車：260等後可跟車，每日至少打滿100分BOSS積分拿楓點獎勵，翻牌建議使用楓幣+免費喵幣領取。</p>
+
+            <p><strong>六、其他實用系統</strong><br>
+            推廣推文：官網推文系統，參加每日推文累積獲得黃金蘋果、喵幣等。<br>
+            小叮嚀：建議找公會加入，可獲得免費新手裝備（神秘+滅龍），也更容易找到翻牌車與組隊任務團。</p>
+
             <div class="game-image-placeholder">
                 <i class="fas fa-check-circle"></i> 練42戰地 <i class="fas fa-rocket"></i> 怪公直升 <i class="fas fa-gem"></i> 六轉亞努斯
-            </div>
-            <div class="highlight-box" style="margin-top: 1rem; background: #f7efda;">
-                💡 <strong>小叮嚀：</strong> 建議找個公會加入，除了能獲得免費的新手裝備（神秘+滅龍），也更容易找到 BOSS 翻牌車或組隊任務。
             </div>
             <div class="maple-leaf-bg">🍁🍁</div>
         </div>
@@ -1065,29 +1038,48 @@
             <div class="page-stamp">Changelog</div>
         </div>
         <div class="slide-content">
-            <div class="highlight-box" style="border-left-color: #2e7d32; background: #e8f5e9; margin-bottom: 1.5rem;">
-                <strong>📅 4/22 更新內容：</strong>
+            <!-- 1.0.4 版本 -->
+            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0; margin-bottom: 1.5rem;">
+                <strong>📅 1.0.4 版本更新（2025/04/23）</strong>
                 <ul style="margin-top: 0.5rem;">
-                    <li><strong>新增</strong>
-                        <ul>
-                            <li>網頁版本上線：內容已重新整理為網頁版，可直接開啟查看圖文資訊。</li>
-                            <li>首頁跳轉功能：新增快速跳轉功能，可直達對應頁面。</li>
-                            <li>組中詳細流程：新增詳細流程說明，並更新相關網址。</li>
-                            <li>貓貓谷介紹：新增貓貓谷系統詳細介紹。</li>
-                            <li>ARC 快速升級：新增 ARC 系統快速提升攻略。</li>
-                        </ul>
-                    </li>
                     <li><strong>修正</strong>
                         <ul>
-                            <li>文本錯誤：修正部分文案與資訊錯誤。</li>
-                            <li>圖片位置：調整部分圖片顯示位置以利閱讀。</li>
-                            <li>移除內容：移除 Herobrine 與超強。</li>
+                            <li>修復首頁快捷跳轉至「六轉HEXA」頁面功能失效的問題。</li>
+                            <li>刪除首頁跳轉：移除封面頁的跳轉按鈕區域，僅保留右側快捷選單。</li>
+                            <li>文字調整：將封面歡迎詞改為「歡迎來到貓貓谷新手冒險指南...」。</li>
+                            <li>快速總結頁面：重新組織「角色成長系統」、「260等後」、「其他實用系統」等段落，新增 ARC 快速升級說明，修正 BOSS 翻牌車描述，補充推廣推文細節。</li>
+                        </ul>
+                    </li>
+                    <li><strong>新增</strong>
+                        <ul>
+                            <li>六轉頁面：新增「春天開始往後的AUT地圖」圖片，並調整為六芒星圖標。</li>
+                            <li>右側快捷選單：為「六轉HEXA」選項新增六芒星圖標。</li>
                         </ul>
                     </li>
                 </ul>
             </div>
-            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0;">
-                <strong>📅 4/23 更新內容：</strong>
+            <!-- 1.0.3 版本 -->
+            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0; margin-bottom: 1.5rem;">
+                <strong>📅 1.0.3 版本更新（2025/04/23）</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>新增</strong>
+                        <ul>
+                            <li>ARC頁面：將「AUT真實力量」與「真實符文選擇券」圖片並排顯示。</li>
+                            <li>六轉頁面：重新組織文字與圖片順序，將 HEXA 矩陣與核心碎片圖片並排。</li>
+                        </ul>
+                    </li>
+                    <li><strong>修正</strong>
+                        <ul>
+                            <li>BOSS翻牌車頁面：詳細拆分每日BOSS積分、獨立獎勵、翻牌獎勵的說明。</li>
+                            <li>更新日誌：改為版本號格式（1.0 / 1.0.1 / 1.0.2 / 1.0.3）。</li>
+                            <li>其他：最佳化部分頁面圖片排版與文字流暢度。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 1.0.2 版本 -->
+            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0; margin-bottom: 1.5rem;">
+                <strong>📅 1.0.2 版本更新（2025/04/23）</strong>
                 <ul style="margin-top: 0.5rem;">
                     <li><strong>新增</strong>
                         <ul>
@@ -1104,6 +1096,34 @@
                             <li>移除內容：移除 Herobrine 與超強。</li>
                         </ul>
                     </li>
+                </ul>
+            </div>
+            <!-- 1.0.1 版本 -->
+            <div class="highlight-box" style="border-left-color: #2e7d32; background: #e8f5e9; margin-bottom: 1.5rem;">
+                <strong>📅 1.0.1 版本更新（2025/04/22）</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>新增</strong>
+                        <ul>
+                            <li>首頁跳轉功能：新增快速跳轉功能，可直達對應頁面。（註：此功能已於 1.0.4 移除）</li>
+                            <li>組中詳細流程：新增詳細流程說明，並更新相關網址。</li>
+                            <li>貓貓谷介紹：新增貓貓谷系統詳細介紹。</li>
+                            <li>ARC 快速升級：新增 ARC 系統快速提升攻略。</li>
+                        </ul>
+                    </li>
+                    <li><strong>修正</strong>
+                        <ul>
+                            <li>文本錯誤：修正部分文案與資訊錯誤。</li>
+                            <li>圖片位置：調整部分圖片顯示位置以利閱讀。</li>
+                            <li>移除內容：移除 Herobrine 與超強。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 1.0 版本 -->
+            <div class="highlight-box" style="border-left-color: #2e7d32; background: #e8f5e9;">
+                <strong>📅 1.0 版本（2025/04/22）</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>網頁版本上線：內容已重新整理為網頁版，可直接開啟查看圖文資訊。</li>
                 </ul>
             </div>
             <div class="maple-leaf-bg">📝</div>
@@ -1134,21 +1154,6 @@
             }
         });
     });
-
-    // 原有的跳轉按鈕功能
-    (function() {
-        const buttons = document.querySelectorAll('.jump-btn');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('data-target');
-                if (!targetId) return;
-                const targetSlide = document.getElementById(`slide-${targetId}`);
-                if (targetSlide) {
-                    targetSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    })();
 </script>
 </body>
 </html>
