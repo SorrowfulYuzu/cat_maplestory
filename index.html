@@ -378,6 +378,52 @@
             flex: 1 1 300px;
             text-align: center;
         }
+
+        /* 可收合更新日誌樣式 */
+        .changelog-item {
+            margin-bottom: 1rem;
+            border-radius: 24px;
+            background: #f7efda;
+            border-left: 12px solid #d99938;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .changelog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            background: #f7efda;
+            font-weight: bold;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', cursive;
+            transition: background 0.2s;
+        }
+        .changelog-header:hover {
+            background: #efe2c9;
+        }
+        .changelog-header .version {
+            color: #4e3b28;
+        }
+        .changelog-header .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+        .changelog-content {
+            padding: 0 1.5rem 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background: #fdf8e7;
+        }
+        .changelog-content.show {
+            max-height: 800px;
+            padding: 0.8rem 1.5rem 1.2rem 1.5rem;
+        }
+        .changelog-content ul {
+            margin-left: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -422,6 +468,10 @@
         <div class="slide-content">
             <p><span class="maple-badge">📖 簡介</span> 本篇主要提供給沒玩過<strong>新楓之谷版本</strong>（如從V113、楓星、阿泰爾之類偏舊版本）或是沒玩過私服的玩家快速上手，進入到每日環節。</p>
             <p><i class="fas fa-maple-leaf"></i> 歡迎來到貓貓谷新手冒險指南，跟著這本冒險小書，一步步成為谷中高手吧！</p>
+            <!-- 小提示 -->
+            <div class="highlight-box" style="background: #f0e7d4; border-left-color: #b68b40; margin: 0.5rem 0 0 0;">
+                💡 <strong>小提示：</strong> 可以點擊頁面右下角的卷軸快速跳轉想查看的頁面。
+            </div>
             <div class="game-image-placeholder">
                 <div class="game-icon-set"><i class="fas fa-maple-leaf"></i> <span>MapleStory 冒險啟程</span> <i class="fas fa-cat"></i></div>
                 <div class="game-icon-set"><i class="fas fa-crown"></i> <span>貓貓谷專屬</span> <i class="fas fa-dice-d6"></i></div>
@@ -493,7 +543,7 @@
         </div>
     </div>
 
-    <!-- 戰地聯盟＋傳授（圖片並排） -->
+    <!-- 戰地聯盟＋傳授 -->
     <div class="maple-slide" id="slide-legion">
         <div class="slide-header">
             <span class="title-icon">❄️🐧</span>
@@ -545,7 +595,7 @@
         </div>
     </div>
 
-    <!-- 獎勵中心＋資源貨幣＆等級獎勵 -->
+    <!-- 獎勵中心｜資源貨幣＆等級獎勵 -->
     <div class="maple-slide" id="slide-reward">
         <div class="slide-header">
             <span class="title-icon">📦👻</span>
@@ -629,7 +679,7 @@
         </div>
     </div>
 
-    <!-- 星力相關系統（圖片順序已調整） -->
+    <!-- 星力相關系統 -->
     <div class="maple-slide" id="slide-starforce">
         <div class="slide-header">
             <span class="title-icon">⭐🪐</span>
@@ -714,7 +764,7 @@
         </div>
     </div>
 
-    <!-- ARC & AUT 相關（已移除快速提升ARC方法，此區塊移至小提示頁面） -->
+    <!-- ARC & AUT 相關 -->
     <div class="maple-slide" id="slide-arc">
         <div class="slide-header">
             <span class="title-icon">🐦🌿</span>
@@ -963,7 +1013,7 @@
         </div>
     </div>
 
-    <!-- ==================== 小提示｜日常・常識・小技巧（原結尾頁面，已大幅改寫） ==================== -->
+    <!-- 小提示｜日常・常識・小技巧（原結尾頁面） -->
     <div class="maple-slide" id="slide-guild">
         <div class="slide-header">
             <span class="title-icon">🍄🤝</span>
@@ -987,7 +1037,6 @@
                 經常可以在廣播上看到「收賣幣/代斗 1:400G」的相關廣播：買幣/代斗，也就是你跟對方要遊戲帳號後找橘貓開單，充錢到對方帳號，對方入帳後給你楓幣或對應價值物。賣幣也就是反過來對方充值到你的帳號。<br>
                 比例 1:400G 就是1單：400E楓幣，1單就是1000T（台幣），1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在選單-商店-貨幣兌換裡面交換。
             </div>
-            <!-- 交易圖片並排 -->
             <div class="img-pair">
                 <div>
                     <img src="https://i.ibb.co/7t18Vgw5/QQ20260423-190003.png" alt="廣播收賣幣圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播收賣幣';">
@@ -1008,7 +1057,6 @@
                     （如果無法開啟師徒頁面，需要到職業中心 -> 師徒任務進行重置後，點擊頭上燈泡執行任務後才可使用）<br>
                     但要注意不是成功申請成為師徒就有技能效果的，需要打滿修練點數1000點，點擊完成後，技能才生效。
                 </div>
-                <!-- 師徒圖片並排 -->
                 <div class="img-pair" style="margin-top: 1rem;">
                     <div>
                         <img src="https://i.ibb.co/tpH5FjDk/QQ20260423-185014.png" alt="師徒申請畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒申請畫面';">
@@ -1079,7 +1127,7 @@
         </div>
     </div>
 
-    <!-- 更新日誌 PAGE（含 1.0.5 版本） -->
+    <!-- 更新日誌 PAGE（可收合版本，1.0.6 已調整文字） -->
     <div class="maple-slide" id="slide-changelog">
         <div class="slide-header">
             <span class="title-icon">📋🕒</span>
@@ -1087,54 +1135,171 @@
             <div class="page-stamp">Changelog</div>
         </div>
         <div class="slide-content">
+            <!-- 1.0.6 版本 -->
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0.6 版本更新（2025/04/24）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>新增</strong>
+                            <ul>
+                                <li>封面頁新增小提示：右下角卷軸可快速跳轉頁面。</li>
+                                <li>更新日誌改為可收合式列表，提升閱讀體驗。</li>
+                            </ul>
+                        </li>
+                        <li><strong>修正</strong>
+                            <ul>
+                                <li>移除內容：移除 Herobrine 與超強。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <!-- 1.0.5 版本 -->
-            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0; margin-bottom: 1.5rem;">
-                <strong>📅 1.0.5 版本更新（2025/04/23）</strong>
-                <ul style="margin-top: 0.5rem;">
-                    <li><strong>修改</strong>
-                        <ul>
-                            <li>「結尾」頁面改為「小提示｜日常・常識・小技巧」，並大幅擴充內容。</li>
-                            <li>新增「260等後要做什麼」、「如何獲得裝備與楓幣」、「ARC符文小技巧」等實用資訊。</li>
-                            <li>將原 ARC 頁面中的「快速提升ARC方法」移動至本頁並整合。</li>
-                            <li>新增並排顯示「交易圖片」與「師徒圖片」。</li>
-                        </ul>
-                    </li>
-                    <li><strong>移除</strong>
-                        <ul>
-                            <li>ARC 頁面中原有的「快速提升ARC方法」區塊（已移至小提示頁面）。</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0.5 版本更新（2025/04/23）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>修改</strong>
+                            <ul>
+                                <li>「結尾」頁面改為「小提示｜日常・常識・小技巧」，並大幅擴充內容。</li>
+                                <li>新增「260等後要做什麼」、「如何獲得裝備與楓幣」、「ARC符文小技巧」等實用資訊。</li>
+                                <li>將原 ARC 頁面中的「快速提升ARC方法」移動至本頁並整合。</li>
+                                <li>新增並排顯示「交易圖片」與「師徒圖片」。</li>
+                            </ul>
+                        </li>
+                        <li><strong>移除</strong>
+                            <ul>
+                                <li>ARC 頁面中原有的「快速提升ARC方法」區塊（已移至小提示頁面）。</li>
+                                <li>移除內容：移除 Herobrine 與超強。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- 1.0.4 版本（略） -->
-            <div class="highlight-box" style="border-left-color: #f5a623; background: #fff3e0; margin-bottom: 1.5rem;">
-                <strong>📅 1.0.4 版本更新（2025/04/23）</strong>
-                <ul style="margin-top: 0.5rem;">
-                    <li><strong>修正</strong>
-                        <ul>
-                            <li>修復首頁快捷跳轉至「六轉HEXA」頁面功能失效的問題。</li>
-                            <li>刪除首頁跳轉：移除封面頁的跳轉按鈕區域，僅保留右側快捷選單。</li>
-                            <li>文字調整：將封面歡迎詞改為「歡迎來到貓貓谷新手冒險指南...」。</li>
-                            <li>快速總結頁面：重新組織「角色成長系統」、「260等後」、「其他實用系統」等段落，新增 ARC 快速升級說明，修正 BOSS 翻牌車描述，補充推廣推文細節。</li>
-                            <li>星力系統頁面：調整圖片順序與並排顯示。</li>
-                            <li>戰地聯盟頁面：將傳授與戰地圖片並排顯示。</li>
-                            <li>五轉頁面：將 V 矩陣核心放入凹槽與添加完成圖片並排顯示。</li>
-                        </ul>
-                    </li>
-                    <li><strong>新增</strong>
-                        <ul>
-                            <li>六轉頁面：新增「春天開始往後的AUT地圖」圖片，並調整為六芒星圖標。</li>
-                            <li>右側快捷選單：為「六轉HEXA」選項新增六芒星圖標。</li>
-                        </ul>
-                    </li>
-                </ul>
+            <!-- 1.0.4 版本 -->
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0.4 版本更新（2025/04/23）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>修正</strong>
+                            <ul>
+                                <li>修復首頁快捷跳轉至「六轉HEXA」頁面功能失效的問題。</li>
+                                <li>刪除首頁跳轉：移除封面頁的跳轉按鈕區域，僅保留右側快捷選單。</li>
+                                <li>文字調整：將封面歡迎詞改為「歡迎來到貓貓谷新手冒險指南...」。</li>
+                                <li>快速總結頁面：重新組織「角色成長系統」、「260等後」、「其他實用系統」等段落，新增 ARC 快速升級說明，修正 BOSS 翻牌車描述，補充推廣推文細節。</li>
+                                <li>星力系統頁面：調整圖片順序與並排顯示。</li>
+                                <li>戰地聯盟頁面：將傳授與戰地圖片並排顯示。</li>
+                                <li>五轉頁面：將 V 矩陣核心放入凹槽與添加完成圖片並排顯示。</li>
+                                <li>移除內容：移除 Herobrine 與超強。</li>
+                            </ul>
+                        </li>
+                        <li><strong>新增</strong>
+                            <ul>
+                                <li>六轉頁面：新增「春天開始往後的AUT地圖」圖片，並調整為六芒星圖標。</li>
+                                <li>右側快捷選單：為「六轉HEXA」選項新增六芒星圖標。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- 其餘版本（1.0.3, 1.0.2, 1.0.1, 1.0）此處略以節省長度，但實際完整檔案會保留 -->
-            <div class="highlight-box" style="border-left-color: #2e7d32; background: #e8f5e9;">
-                <strong>📅 1.0 版本（2025/04/22）</strong>
-                <ul style="margin-top: 0.5rem;">
-                    <li>網頁版本上線：內容已重新整理為網頁版，可直接開啟查看圖文資訊。</li>
-                </ul>
+            <!-- 1.0.3 版本 -->
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0.3 版本更新（2025/04/23）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>新增</strong>
+                            <ul>
+                                <li>ARC頁面：將「AUT真實力量」與「真實符文選擇券」圖片並排顯示。</li>
+                                <li>六轉頁面：重新組織文字與圖片順序，將 HEXA 矩陣與核心碎片圖片並排。</li>
+                            </ul>
+                        </li>
+                        <li><strong>修正</strong>
+                            <ul>
+                                <li>BOSS翻牌車頁面：詳細拆分每日BOSS積分、獨立獎勵、翻牌獎勵的說明。</li>
+                                <li>更新日誌：改為版本號格式（1.0 / 1.0.1 / 1.0.2 / 1.0.3）。</li>
+                                <li>其他：最佳化部分頁面圖片排版與文字流暢度。</li>
+                                <li>移除內容：移除 Herobrine 與超強。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 1.0.2 版本 -->
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0.2 版本更新（2025/04/23）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>新增</strong>
+                            <ul>
+                                <li>快捷卷軸選單：頁面右下角新增快捷選單，方便快速跳轉至各個目錄。</li>
+                                <li>推廣教學：新增推廣推文的詳細教學內容。</li>
+                                <li>網址鏡像優化：修改網址鏡像，不再跳出安全性警告，且網址固定不再變動。</li>
+                            </ul>
+                        </li>
+                        <li><strong>修正</strong>
+                            <ul>
+                                <li>網址失效：修復部分失效的網頁連結。</li>
+                                <li>閱讀體驗：修正部分文字因字型與大小導致難以閱讀的問題。</li>
+                                <li>排版優化：修改部分頁面的顯示排版與圖片位置。</li>
+                                <li>移除內容：移除 Herobrine 與超強。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 1.0.1 版本 -->
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0.1 版本更新（2025/04/22）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>新增</strong>
+                            <ul>
+                                <li>首頁跳轉功能：新增快速跳轉功能，可直達對應頁面。（註：此功能已於 1.0.4 移除）</li>
+                                <li>組中詳細流程：新增詳細流程說明，並更新相關網址。</li>
+                                <li>貓貓谷介紹：新增貓貓谷系統詳細介紹。</li>
+                                <li>ARC 快速升級：新增 ARC 系統快速提升攻略。</li>
+                            </ul>
+                        </li>
+                        <li><strong>修正</strong>
+                            <ul>
+                                <li>文本錯誤：修正部分文案與資訊錯誤。</li>
+                                <li>圖片位置：調整部分圖片顯示位置以利閱讀。</li>
+                                <li>移除內容：移除 Herobrine 與超強。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 1.0 版本 -->
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 1.0 版本（2025/04/22）</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li>網頁版本上線：內容已重新整理為網頁版，可直接開啟查看圖文資訊。</li>
+                        <li>移除內容：移除 Herobrine 與超強。</li>
+                    </ul>
+                </div>
             </div>
             <div class="maple-leaf-bg">📝</div>
         </div>
@@ -1164,6 +1329,19 @@
             }
         });
     });
+
+    // 更新日誌收合功能
+    function toggleChangelog(headerElement) {
+        const content = headerElement.nextElementSibling;
+        const icon = headerElement.querySelector('.toggle-icon');
+        if (content.classList.contains('show')) {
+            content.classList.remove('show');
+            icon.innerHTML = '▼';
+        } else {
+            content.classList.add('show');
+            icon.innerHTML = '▲';
+        }
+    }
 </script>
 </body>
 </html>
