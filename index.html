@@ -17,8 +17,6 @@
             align-items:center;
             position:relative;
         }
-
-        /* 右側固定收縮選單 */
         .scroll-nav{
             position:fixed;right:20px;top:50%;transform:translateY(-50%);
             z-index:1000;display:flex;flex-direction:column;align-items:flex-end;
@@ -50,12 +48,10 @@
         }
         .nav-menu a i{font-size:1.1rem;color:#b96f20;width:24px;text-align:center}
         .nav-menu a:hover{background:#efdfbc;color:#7a4816;transform:translateX(-4px)}
-
         .slides-container{
             max-width:1280px;width:100%;margin:0 auto;
             display:flex;flex-direction:column;gap:2.5rem;
         }
-
         .maple-slide{
             background:#fdf8e7;
             background-image:radial-gradient(circle at 25% 40%,rgba(210,180,140,.1) 1.5%,transparent 1.5%);
@@ -67,7 +63,6 @@
         .maple-slide:hover{transform:translateY(-4px)}
         .maple-slide::before{content:"🍂";position:absolute;top:-8px;left:-8px;font-size:2rem;opacity:.3;transform:rotate(-15deg);pointer-events:none}
         .maple-slide::after{content:"🍁";position:absolute;bottom:-8px;right:-8px;font-size:2rem;opacity:.3;transform:rotate(10deg);pointer-events:none}
-
         .slide-header{
             background:linear-gradient(135deg,#f2e5ce,#e2cfaa);
             padding:.6rem 1.8rem;border-bottom:3px solid #c9a153;
@@ -84,7 +79,6 @@
             font-size:.65rem;font-weight:bold;color:#fef0cf;font-family:monospace;
             box-shadow:inset -1px -1px 0 #6e4e28,inset 1px 1px 0 #e9c48b;
         }
-
         .slide-content{
             padding:1.8rem 2.2rem;font-size:1rem;line-height:1.55;color:#2d281c;
             background:rgba(253,248,235,.9);
@@ -94,21 +88,18 @@
         .slide-content a:hover{color:#7a4816}
         .slide-content ul,.slide-content ol{margin-left:1.8rem;margin-bottom:1rem}
         .slide-content ul li,.slide-content ol li{margin-bottom:.4rem}
-
         .maple-badge{
             background:#efdfbc;border-radius:30px;display:inline-block;
             padding:.1rem .8rem;font-weight:bold;font-size:.85rem;
             border-left:4px solid #c9862e;margin-right:.3rem;
             box-shadow:inset 0 1px 0 #fffae8,0 1px 2px rgba(0,0,0,.05);
         }
-
         .highlight-box{
             background:#f7efda;border-left:12px solid #d99938;
             padding:.8rem 1.2rem;margin:1rem 0;border-radius:24px;
             box-shadow:inset 0 0 0 1px #fff4e0,0 2px 5px rgba(0,0,0,.05);position:relative;
         }
         .highlight-box::before{content:"📜";position:absolute;left:-24px;top:-10px;font-size:1.2rem}
-
         .game-image-placeholder{
             display:flex;flex-wrap:wrap;gap:16px;margin:20px 0 10px;
             align-items:center;justify-content:center;
@@ -121,7 +112,6 @@
             font-weight:bold;color:#a5651e;font-size:1.2rem;
             box-shadow:inset 0 1px 0 white,0 2px 6px rgba(0,0,0,.1);
         }
-
         .img-row,.img-pair{display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:center;margin:1rem 0}
         .img-row img,.img-pair > div{flex:1 1 200px;min-width:150px;text-align:center}
         .slide-content img:not(.no-center){display:block;margin:0.5rem auto}
@@ -130,35 +120,52 @@
             border:2px solid #e5c896;
         }
         .img-caption{font-size:.8rem;text-align:center;color:#7a5a3a;margin:-0.3rem 0 .8rem}
-
         .maple-leaf-bg{
             position:absolute;bottom:10px;right:10px;opacity:.08;
             font-size:5rem;pointer-events:none;transform:rotate(15deg);
         }
-
-        /* 可收合更新日誌 */
-        .changelog-item{
-            margin-bottom:1.2rem;border-radius:24px;background:#f7efda;
-            border-left:12px solid #d99938;overflow:hidden;transition:all .2s;
+        /* 可收合更新日誌及自訂折疊樣式 */
+        .changelog-item, .custom-collapse {
+            margin-bottom:1.2rem;
+            border-radius:24px;
+            background:#f7efda;
+            border-left:12px solid #d99938;
+            overflow:hidden;
+            transition:all .2s;
         }
-        .changelog-header{
-            display:flex;justify-content:space-between;align-items:center;
-            padding:.9rem 1.6rem;cursor:pointer;background:#f7efda;
-            font-weight:bold;font-size:1.05rem;font-family:'Press Start 2P',cursive;
+        .changelog-header, .collapse-header {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:.9rem 1.6rem;
+            cursor:pointer;
+            background:#f7efda;
+            font-weight:bold;
+            font-family:'Press Start 2P',cursive;
             transition:background .2s;
         }
-        .changelog-header:hover{background:#efe2c9}
-        .changelog-content{
-            padding:0 1.6rem;max-height:0;overflow:hidden;
-            transition:max-height .3s ease-out,padding .3s ease;background:#fdf8e7;
+        .changelog-header{ font-size:1.05rem; }
+        .collapse-header{ font-size:1rem; }
+        .changelog-header:hover, .collapse-header:hover{ background:#efe2c9; }
+        .changelog-content, .collapse-content {
+            padding:0 1.6rem;
+            max-height:0;
+            overflow:hidden;
+            transition:max-height .3s ease-out,padding .3s ease;
+            background:#fdf8e7;
         }
-        .changelog-content.show{max-height:950px;padding:1rem 1.6rem 1.4rem}
-
+        .changelog-content.show, .collapse-content.show {
+            max-height: 2800px;
+            padding:1rem 1.6rem 1.4rem;
+        }
+        .toggle-icon {
+            font-size:0.9rem;
+        }
         /* 五圖重新排列專用樣式 - 使用 Grid 實現左右列頂部和底部完全對齊 */
         .custom-five-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto auto;  /* 三行自動高度 */
+            grid-template-rows: auto auto auto;
             gap: 20px;
             margin: 1rem 0;
         }
@@ -167,20 +174,13 @@
         .grid-right-1 { grid-row: 1 / 2; grid-column: 2 / 3; }
         .grid-right-2 { grid-row: 2 / 3; grid-column: 2 / 3; }
         .grid-right-3 { grid-row: 3 / 4; grid-column: 2 / 3; }
-
         .custom-img-item {
             text-align: center;
             display: flex;
             flex-direction: column;
-            /* 默認頂部對齊；左側第二項與右側第三項需單獨設置底部對齊 */
             align-self: start;
         }
-        /* 讓「貨幣G交易示意圖」與「廣播懸賞示意圖」所在行底部對齊 */
-        .grid-left-2,
-        .grid-right-3 {
-            align-self: end;
-        }
-
+        .grid-left-2, .grid-right-3 { align-self: end; }
         @media (max-width: 720px){
             .custom-five-grid {
                 display: flex;
@@ -190,11 +190,8 @@
             .grid-left-1, .grid-left-2, .grid-right-1, .grid-right-2, .grid-right-3 {
                 grid-row: auto;
                 grid-column: auto;
-                align-self: stretch !important; /* 手機版恢復自然排列 */
+                align-self: stretch !important;
             }
-        }
-
-        @media (max-width:720px){
             .scroll-nav{right:10px}
             .nav-toggle{width:44px;height:44px;font-size:22px}
             .nav-menu a{font-size:14px}
@@ -206,7 +203,6 @@
     </style>
 </head>
 <body>
-
 <div class="scroll-nav">
     <div class="nav-menu" id="navMenu">
         <ul>
@@ -234,7 +230,6 @@
 </div>
 
 <div class="slides-container">
-
     <!-- 封面頁 -->
     <div class="maple-slide" id="slide-cover">
         <div class="slide-header">
@@ -558,7 +553,7 @@
         </div>
     </div>
 
-    <!-- 推廣教學 -->
+    <!-- 推廣教學（已折疊圖片部分，修正折疊功能） -->
     <div class="maple-slide" id="slide-promotion">
         <div class="slide-header">
             <span class="title-icon">📢💬</span>
@@ -573,17 +568,28 @@
             <p>進入推文頁面後，首先第一點要選擇是每日推文還是首次推文。</p>
             <div class="highlight-box" style="border-left-color:#2e7d32;background:#e8f5e9;"><strong>🎁 首次推文（首推）：</strong><ul><li>領取第一次大禮包的楓葉點數，前期普通怪物公園需要大量楓葉點數。</li><li>榮耀系列P寵可以自行或找玩家洗成Boss傷害／經驗。</li><li><strong class="maple-badge">注意：</strong> 首次推文必須特別註記在輸入框，若變成每日推文寶箱可以找GM協助。</li></ul></div>
             <div class="highlight-box" style="border-left-color:#f5a623;background:#fff3e0;"><strong>📆 每日推文：</strong><ul><li>首推之後，每天可以持續推文，可以領取每日推廣箱子。</li><li>每日推文獎勵包含：<strong>輪迴星火 / 黃金蘋果 / 喵喵幣</strong>。</li><li>💡 建議保持推文累積物資，長期下來可獲得可觀資源。</li></ul></div>
-            <p>說明備註正常情況不需要填寫。但可以用來上傳截圖，可以避免每次都需要保存圖片再上傳導致的問題。</p><img src="https://i.ibb.co/Cs27RJrS/2.png" alt="推文頁面選項圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=推文頁面選項圖';"><div class="img-caption">📝 推文頁面選項圖</div>
-            <p>再往下可以看到相關連結區，可以快速跳轉到對應的FB頁面以及168論壇頁面。同時也有提供推廣文字內容複製按鈕，點一下會自動複製當天日期以及推廣內容，將此內容在FB與168論壇回覆即可。</p>
-            <div class="img-row"><img src="https://i.ibb.co/Sw6VMMs3/3.png" alt="相關連結圖" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=相關連結圖';"><img src="https://i.ibb.co/DDb0sYdV/5.png" alt="推廣文字複製圖" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=推廣文字複製圖';"></div><div class="img-caption">🔗 相關連結區 (左) 與 推廣文字複製按鈕 (右)</div>
-            <div class="img-pair"><div><img src="https://i.ibb.co/xqzdJJ1y/6.png" alt="FB回覆範例" onerror="this.onerror=null; this.src='https://placehold.co/500x400/F9E0A0/7A4C1E?text=FB回覆範例';"><div class="img-caption">📘 FB回覆範例</div></div><div><img src="https://i.ibb.co/sJHgZG47/7.png" alt="168回覆範例" onerror="this.onerror=null; this.src='https://placehold.co/500x400/F9E0A0/7A4C1E?text=168回覆範例';"><div class="img-caption">💬 168論壇回覆範例</div></div></div>
-            <p>再往下可以看到圖片上傳區，可以將所回覆的畫面截圖保存後，點擊此處上傳截圖。也可利用截圖後可以直接<kbd>CTRL+V</kbd>貼上截圖的特性，在先前的說明備註欄位直接貼上截圖，也等同上傳截圖。圖片最多上傳兩張。</p><img src="https://i.ibb.co/1fq8NQnV/4.png" alt="圖片上傳區圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=圖片上傳區圖';"><div class="img-caption">🖼️ 圖片上傳區</div>
-            <p>兩張回覆圖片上傳完畢後即可點擊「提交推文」按鈕進行提交。</p><p>提交成功會出現成功畫面，同時頁面進入冷卻倒計時，提交歷史也會出現你的提交記錄以及GM審核記錄。</p><img src="https://i.ibb.co/TBZPXTrR/10.png" alt="提交成功圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=提交成功畫面';"><div class="img-caption">✅ 提交成功畫面與冷卻計時</div>
+            
+            <!-- 可縮放圖片教學區域（已移除內聯樣式，靠CSS控制折疊） -->
+            <div class="custom-collapse">
+                <div class="collapse-header" onclick="toggleCollapse(this)">
+                    <span>📸 點我展開詳細圖片教學</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <img src="https://i.ibb.co/Cs27RJrS/2.png" alt="推文頁面選項圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=推文頁面選項圖';"><div class="img-caption">📝 推文頁面選項圖</div>
+                    <p>說明備註正常情況不需要填寫。但可以用來上傳截圖，可以避免每次都需要保存圖片再上傳導致的問題。</p>
+                    <p>再往下可以看到相關連結區，可以快速跳轉到對應的FB頁面以及168論壇頁面。同時也有提供推廣文字內容複製按鈕，點一下會自動複製當天日期以及推廣內容，將此內容在FB與168論壇回覆即可。</p>
+                    <div class="img-row"><img src="https://i.ibb.co/Sw6VMMs3/3.png" alt="相關連結圖" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=相關連結圖';"><img src="https://i.ibb.co/DDb0sYdV/5.png" alt="推廣文字複製圖" style="flex:1;" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=推廣文字複製圖';"></div><div class="img-caption">🔗 相關連結區 (左) 與 推廣文字複製按鈕 (右)</div>
+                    <div class="img-pair"><div><img src="https://i.ibb.co/xqzdJJ1y/6.png" alt="FB回覆範例" onerror="this.onerror=null; this.src='https://placehold.co/500x400/F9E0A0/7A4C1E?text=FB回覆範例';"><div class="img-caption">📘 FB回覆範例</div></div><div><img src="https://i.ibb.co/sJHgZG47/7.png" alt="168回覆範例" onerror="this.onerror=null; this.src='https://placehold.co/500x400/F9E0A0/7A4C1E?text=168回覆範例';"><div class="img-caption">💬 168論壇回覆範例</div></div></div>
+                    <p>再往下可以看到圖片上傳區，可以將所回覆的畫面截圖保存後，點擊此處上傳截圖。也可利用截圖後可以直接<kbd>CTRL+V</kbd>貼上截圖的特性，在先前的說明備註欄位直接貼上截圖，也等同上傳截圖。圖片最多上傳兩張。</p><img src="https://i.ibb.co/1fq8NQnV/4.png" alt="圖片上傳區圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=圖片上傳區圖';"><div class="img-caption">🖼️ 圖片上傳區</div>
+                    <p>兩張回覆圖片上傳完畢後即可點擊「提交推文」按鈕進行提交。</p><p>提交成功會出現成功畫面，同時頁面進入冷卻倒計時，提交歷史也會出現你的提交記錄以及GM審核記錄。</p><img src="https://i.ibb.co/TBZPXTrR/10.png" alt="提交成功圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=提交成功畫面';"><div class="img-caption">✅ 提交成功畫面與冷卻計時</div>
+                </div>
+            </div>
             <div class="maple-leaf-bg">📢</div>
         </div>
     </div>
 
-    <!-- 常用簡稱＆小技巧（含重新排列的五圖，左右列頂部和底部完全對齊） -->
+    <!-- 常用簡稱與小技巧（完整保留） -->
     <div class="maple-slide" id="slide-guild">
         <div class="slide-header">
             <span class="title-icon">🍄🤝</span>
@@ -592,103 +598,66 @@
         </div>
         <div class="slide-content">
             <div class="highlight-box" style="border-left-color:#d99938;">
-                <strong>🔹 260等後要做什麼：</strong><br>
-                推薦找個公會加入，除了可找到比較固定的BOSS翻牌車、組中車、怪公車，大部分公會也有提供給新人的整套新手裝備（神秘+滅龍），可以幫助快速起家。<br>
-                但這邊公會通常不會主動收人，需到自行找對應公會的聯繫人。<br>
-                🔗 <a href="https://discord.com/channels/1082631479730896937/1295310308252057650" target="_blank">DC公會專區</a><br>
-                後續每日就是把必做任務做完，跟BOSS翻牌車領取獎勵，慢慢累積資本更換裝備，戰地42隻角色慢慢練到250等取得SSS卡。<br>
-                目標至少主屬達到8萬再開始嘗試創世武器任務，黑魔法師可以找人帶躺，但軍團長都需自己單打，建議主屬10萬以上會較輕鬆。<br>
-                這大概會需要全身主潛39％或36％，附加潛能洗10％以上，點強過的屬性時裝都基本湊齊才會比較好達到，因此新手建議花點時間打幣、練等順便多瞭解一下這邊的生態與投入情況，不要太著急花錢，以免踩坑。<br>
+                <strong>🔹 260等後要做什麼：</strong><br>推薦找個公會加入，除了可找到比較固定的BOSS翻牌車、組中車、怪公車，大部分公會也有提供給新人的整套新手裝備（神秘+滅龍），可以幫助快速起家。<br>但這邊公會通常不會主動收人，需到自行找對應公會的聯繫人。<br>🔗 <a href="https://discord.com/channels/1082631479730896937/1295310308252057650" target="_blank">DC公會專區</a><br>後續每日就是把必做任務做完，跟BOSS翻牌車領取獎勵，慢慢累積資本更換裝備，戰地42隻角色慢慢練到250等取得SSS卡。<br>目標至少主屬達到8萬再開始嘗試創世武器任務，黑魔法師可以找人帶躺，但軍團長都需自己單打，建議主屬10萬以上會較輕鬆。<br>這大概會需要全身主潛39％或36％，附加潛能洗10％以上，點強過的屬性時裝都基本湊齊才會比較好達到，因此新手建議花點時間打幣、練等順便多瞭解一下這邊的生態與投入情況，不要太著急花錢，以免踩坑。<br>
             </div>
-            
             <div class="highlight-box" style="border-left-color:#8e44ad;">
                 <strong>📖 貓貓谷常用俗語簡稱</strong>
                 <ul style="margin-top: 0.5rem; margin-left: 1rem;">
                     <li><strong>組中</strong>：組隊任務+終極怪物公園的簡稱，通常從組隊任務開始，在組隊任務地圖進行組隊(貓貓選單->副本傳送->組隊任務)</li>
-                    <li><strong>普怪車</strong>：普通怪物公園，主要練等用，通常組滿6人後才開打，在怪物公園地圖進行組隊(貓貓選單->副本傳送->特殊副本->怪物公園)</li>
-                    <br>
+                    <li><strong>普怪車</strong>：普通怪物公園，主要練等用，通常組滿6人後才開打，在怪物公園地圖進行組隊(貓貓選單->副本傳送->特殊副本->怪物公園)</li><br>
                     <li><strong>翻牌車</strong>：每日翻牌BOSS打一輪，具體介紹可以查看BOSS翻牌頁面，組隊位置以喊的人所說的開頭為主，天綠往上就是在天使綠水靈地圖組隊，史烏往下就是在史烏地圖組隊 (貓貓選單->副本傳送->英雄BOSS)</li>
                     <li><strong>黑賽狗咖/林馬迪</strong>：對應BOSS為黑魔法師(260等)->賽蓮(270等)->監視者[卡洛斯](275等)->咖凌(285等)->林波(285等)->人馬[巴德利斯](285等)->最初的敵對者(290等)。需要達到對應的等級才能夠入場，因此跟車前如果等級不夠最好跟隊長說明下只跟到哪隻BOSS。</li>
                     <li><strong>躺/帶尾</strong>：通常會帶上以上BOSS簡稱來說明有哪些BOSS，躺車跟翻牌車是一樣的，你只需要等BOSS死亡就行了，東西歸帶的人所有，主要是為了BOSS翻牌與BOSS積分的獎勵。帶尾車是你花錢找人幫你把BOSS打到最後一階的殘血後對方退組，你自己把BOSS收掉，東西歸你。注意帶尾車只限黑賽狗咖這些BOSS，林馬迪這幾隻都是禁止帶尾的，抓到會BAN帳號。</li>
-                    <li><strong>變身</strong>：主要用在幾個高階BOSS的躺車，由於這些BOSS大多有特殊機制，機制滿了或是死亡次數用完都會導致失敗退出，為了避免此情況，可以利用變身藥水來逃課。<br>
-                    主要變身為「Mr.海查德的部下A」，可以無視大部分的BOSS機制與傷害，當躺車結束要變回來的話需要使用綠色橘子，選擇變身蝸牛後，就可以從右上角的BUFF欄位找蝸牛圖標點右鍵來取消變身。<br>
-                    <strong>變身注意事項：</strong><br>
-                    1.要注意變身終究不是無敵，還是有可能會吃到傷害導致死亡，死掉復活會解除變身，要再使用一次變身藥水。<br>
-                    2.在副本內是無法打開選單解除變身的，因此如果是尾車，不要變身入場。<br>
-                    3.變身會導致無法使用道具以及交互，需要過圖一次後才能恢復正常，因此都是在BOSS門前才變身，不要提前變身導致無法打開選單傳送。</li>
-                    <br>
-                    <li><strong>買賣幣/代斗</strong>：你跟對方要遊戲帳號後DC找GM橘貓開單，充值到對方遊戲帳號，對方入帳後給你對應楓幣或對應價值物。<br>
-                                賣幣也就是反過來對方充值到你的遊戲帳號。</li>
+                    <li><strong>變身</strong>：主要用在幾個高階BOSS的躺車，由於這些BOSS大多有特殊機制，機制滿了或是死亡次數用完都會導致失敗退出，為了避免此情況，可以利用變身藥水來逃課。<br>主要變身為「Mr.海查德的部下A」，可以無視大部分的BOSS機制與傷害，當躺車結束要變回來的話需要使用綠色橘子，選擇變身蝸牛後，就可以從右上角的BUFF欄位找蝸牛圖標點右鍵來取消變身。<br><strong>變身注意事項：</strong><br>1.要注意變身終究不是無敵，還是有可能會吃到傷害導致死亡，死掉復活會解除變身，要再使用一次變身藥水。<br>2.在副本內是無法打開選單解除變身的，因此如果是尾車，不要變身入場。<br>3.變身會導致無法使用道具以及交互，需要過圖一次後才能恢復正常，因此都是在BOSS門前才變身，不要提前變身導致無法打開選單傳送。</li><br>
+                    <li><strong>買賣幣/代斗</strong>：你跟對方要遊戲帳號後DC找GM橘貓開單，充值到對方遊戲帳號，對方入帳後給你對應楓幣或對應價值物。<br>賣幣也就是反過來對方充值到你的遊戲帳號。</li>
                     <li><strong>1單是多少</strong>：1單就是1000T（台幣），因此如果看到比例是 1：420，也就是1單可以換420G的意思。</li>
-                    <li><strong>1G是多少</strong>：1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在貓貓選單-遊戲商店-貨幣兌換裡面交換。<br>
-                        <strong>注意不要直接把金幣賣商店或是丟棄到地板，會無法重新獲得金幣道具，導致的損失GM不予賠償。</strong></li>
-                    <br>
-                    <li><strong>⚠️ 禁止現金交易：</strong> 貓貓谷不允許現金交易，只能使用找GM斗內充值的方式進行收購，因此買賣不要出現T/85/LP之類的字詞，可能會被判定是意圖現金交易。<br>
-                        如果有意圖現金交易的情形都可進行舉報，被舉報方會被封禁帳號，而舉報方可以獲得被舉報方的帳號資源。</li>
-                    <br>
-                    <li><strong>點強</strong>：時裝用的專屬強化，需要消耗點強幣，除套服外每件時裝只能使用一次，可以給時裝附加上全屬性+100的能力。<br>
-                                使用方式為把時裝交易給對方進行強化，完成後在歸還給你並收取金額。<br>
-                                點強幣主要透過充值與推文獲得</li>
-                    <li><strong>XX必成/必強</strong>：在選單->強化中心裡可以利用特定材料強化裝備獲得額外的全屬性增加，裝備最高可以+30，但從+10開始的強化都有機率失敗，因此需要額外花費強化必成幣讓成功機率固定為100％。<br>
-                                使用方式跟點強差不多，對方把裝備給你，你強化完成後在歸還給對方並收取對應金額。<br>
-                                強化必成幣主要透過累充獎勵獲得。</li>
-                    <li><strong>新永恆/舊永恆</strong>：指的都是250等的永恆裝備，新舊差別在於所包含的裝備部位，因為製作材料不同。<br>
-                                舊永恆包含：頭盔、上衣、褲子；新永恆包含：披風、手套、鞋子。</li>
-                    <li><strong>懸賞</strong>：就是完成對方所提出的要求後獲得對應的獎勵，懸賞內容各種都有，主要較多是洗方塊潛能、洗星火能力、強化裝備星力等級。<br>
-                                必須要達到對方的要求才能領賞，如果沒有達成所付出的損失需要自行承擔。<br>
-                                舉例：對方要求裝備潛能要39％屬性，我洗了所擁有的1000方塊都沒有洗出對應要求屬性，則此時我需要歸還裝備，且這1000方塊的損失我自己承擔。</li>
-                     <li><strong>分類/競標</strong>：指的是廣播的這件裝備已經在DC的分類競標專區貼文了，有需要的玩家可以在對應貼文中提出金額，到結標時間截止，最高出價者可成功獲得此裝備。競標的相關規則可以查看競標區規章</li>
+                    <li><strong>1G是多少</strong>：1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在貓貓選單-遊戲商店-貨幣兌換裡面交換。<br><strong>注意不要直接把金幣賣商店或是丟棄到地板，會無法重新獲得金幣道具，導致的損失GM不予賠償。</strong></li><br>
+                    <li><strong>⚠️ 禁止現金交易：</strong> 貓貓谷不允許現金交易，只能使用找GM斗內充值的方式進行收購，因此買賣不要出現T/85/LP之類的字詞，可能會被判定是意圖現金交易。<br>如果有意圖現金交易的情形都可進行舉報，被舉報方會被封禁帳號，而舉報方可以獲得被舉報方的帳號資源。</li><br>
+                    <li><strong>點強</strong>：時裝用的專屬強化，需要消耗點強幣，除套服外每件時裝只能使用一次，可以給時裝附加上全屬性+100的能力。<br>使用方式為把時裝交易給對方進行強化，完成後在歸還給你並收取金額。<br>點強幣主要透過充值與推文獲得</li>
+                    <li><strong>XX必成/必強</strong>：在選單->強化中心裡可以利用特定材料強化裝備獲得額外的全屬性增加，裝備最高可以+30，但從+10開始的強化都有機率失敗，因此需要額外花費強化必成幣讓成功機率固定為100％。<br>使用方式跟點強差不多，對方把裝備給你，你強化完成後在歸還給對方並收取對應金額。<br>強化必成幣主要透過累充獎勵獲得。</li>
+                    <li><strong>新永恆/舊永恆</strong>：指的都是250等的永恆裝備，新舊差別在於所包含的裝備部位，因為製作材料不同。<br>舊永恆包含：頭盔、上衣、褲子；新永恆包含：披風、手套、鞋子。</li>
+                    <li><strong>懸賞</strong>：就是完成對方所提出的要求後獲得對應的獎勵，懸賞內容各種都有，主要較多是洗方塊潛能、洗星火能力、強化裝備星力等級。<br>必須要達到對方的要求才能領賞，如果沒有達成所付出的損失需要自行承擔。<br>舉例：對方要求裝備潛能要39％屬性，我洗了所擁有的1000方塊都沒有洗出對應要求屬性，則此時我需要歸還裝備，且這1000方塊的損失我自己承擔。</li>
+                    <li><strong>分類/競標</strong>：指的是廣播的這件裝備已經在DC的分類競標專區貼文了，有需要的玩家可以在對應貼文中提出金額，到結標時間截止，最高出價者可成功獲得此裝備。競標的相關規則可以查看競標區規章</li>
                 </ul>
             </div>
-
-            <!-- 五圖重新排列：左2右3，左右列頂部和底部完全對齊 -->
             <div class="custom-five-grid">
-                <div class="custom-img-item grid-left-1">
-                    <img src="https://i.ibb.co/SwPKHdT5/QQ20260428-183631.png" alt="變身藥水示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=變身藥水示意圖';">
-                    <div class="img-caption">🧪 變身藥水示意圖</div>
-                </div>
-                <div class="custom-img-item grid-left-2">
-                    <img src="https://i.ibb.co/V0DyCc1t/QQ20260422-042328.png" alt="貨幣G交易示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=貨幣G交易';">
-                    <div class="img-caption">💱 貨幣G交易示意圖</div>
-                </div>
-                <div class="custom-img-item grid-right-1">
-                    <img src="https://i.ibb.co/DfvFYjtH/QQ20260428-193654.png" alt="帶尾廣播示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=帶尾廣播示意圖';">
-                    <div class="img-caption">📢 帶尾廣播示意圖</div>
-                </div>
-                <div class="custom-img-item grid-right-2">
-                    <img src="https://i.ibb.co/7t18Vgw5/QQ20260423-190003.png" alt="廣播收賣幣範例" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播收賣幣';">
-                    <div class="img-caption">📢 廣播收賣幣範例</div>
-                </div>
-                <div class="custom-img-item grid-right-3">
-                    <img src="https://i.ibb.co/pj9P75c2/QQ20260428-204239.png" alt="廣播懸賞示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播懸賞示意圖';">
-                    <div class="img-caption">📢 廣播懸賞示意圖</div>
-                </div>
+                <div class="custom-img-item grid-left-1"><img src="https://i.ibb.co/SwPKHdT5/QQ20260428-183631.png" alt="變身藥水示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=變身藥水示意圖';"><div class="img-caption">🧪 變身藥水示意圖</div></div>
+                <div class="custom-img-item grid-left-2"><img src="https://i.ibb.co/V0DyCc1t/QQ20260422-042328.png" alt="貨幣G交易示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=貨幣G交易';"><div class="img-caption">💱 貨幣G交易示意圖</div></div>
+                <div class="custom-img-item grid-right-1"><img src="https://i.ibb.co/DfvFYjtH/QQ20260428-193654.png" alt="帶尾廣播示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=帶尾廣播示意圖';"><div class="img-caption">📢 帶尾廣播示意圖</div></div>
+                <div class="custom-img-item grid-right-2"><img src="https://i.ibb.co/7t18Vgw5/QQ20260423-190003.png" alt="廣播收賣幣範例" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播收賣幣';"><div class="img-caption">📢 廣播收賣幣範例</div></div>
+                <div class="custom-img-item grid-right-3"><img src="https://i.ibb.co/pj9P75c2/QQ20260428-204239.png" alt="廣播懸賞示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播懸賞示意圖';"><div class="img-caption">📢 廣播懸賞示意圖</div></div>
             </div>
-
-            <!-- 其餘圖片對（DC頻道示意圖、分類競標示意圖）保持不變 -->
             <div class="img-pair">
-                <div>
-                    <img src="https://i.ibb.co/4ZwgLQSW/QQ20260428-185556.png" alt="DC頻道示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=DC頻道示意圖';">
-                    <div class="img-caption">💬 DC頻道交易示意</div>
-                </div>
-                <div>
-                    <img src="https://i.ibb.co/Y4fkfJYJ/QQ20260428-211121.png" alt="分類競標示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=分類競標示意圖';">
-                    <div class="img-caption">💬 分類競標示意圖</div>
-                </div>
+                <div><img src="https://i.ibb.co/4ZwgLQSW/QQ20260428-185556.png" alt="DC頻道示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=DC頻道示意圖';"><div class="img-caption">💬 DC頻道交易示意</div></div>
+                <div><img src="https://i.ibb.co/Y4fkfJYJ/QQ20260428-211121.png" alt="分類競標示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=分類競標示意圖';"><div class="img-caption">💬 分類競標示意圖</div></div>
             </div>
-
             <div class="highlight-box" style="border-left-color:#2e7d32;">
                 <strong>🌀 ARC符文小技巧</strong>
-                <div style="margin-top:1rem;"><strong>01. 符文升級費用免除：</strong><br>玩家可以利用師徒技能提供的效果：讓ARC符文在15等之前的成長升級不再需要花費楓幣，可以大量節省楓幣的花費支出。<br>師徒頁面開啟方式為ESC選單 -> 師徒系統，在沒有綁定師徒前會打開申請面板，可以在面板中選擇其他玩家申請師徒關係。<br>（如果無法開啟師徒頁面，需要到職業中心 -> 師徒任務進行重置後，點擊頭上燈泡執行任務後才可使用）<br>但要注意不是成功申請成為師徒就有技能效果的，需要打滿修練點數1000點，點擊完成後，技能才生效。</div>
-                <div class="img-pair" style="margin-top:1rem;">
-                    <div><img src="https://i.ibb.co/tpH5FjDk/QQ20260423-185014.png" alt="師徒申請畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒申請畫面';"><div class="img-caption">📋 師徒申請畫面</div></div>
-                    <div><img src="https://i.ibb.co/h1V1sZnb/QQ20260423-185920.png" alt="師徒綁定後畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒綁定畫面';"><div class="img-caption">🔗 師徒綁定後畫面</div></div>
+                <div class="custom-collapse" style="margin-top:1rem;">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <span>📌 01. 符文升級費用免除 [點我展開]</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div>玩家可以利用師徒技能提供的效果：讓ARC符文在15等之前的成長升級不再需要花費楓幣，可以大量節省楓幣的花費支出。<br>師徒頁面開啟方式為ESC選單 -> 師徒系統，在沒有綁定師徒前會打開申請面板，可以在面板中選擇其他玩家申請師徒關係。<br>（如果無法開啟師徒頁面，需要到職業中心 -> 師徒任務進行重置後，點擊頭上燈泡執行任務後才可使用）<br>但要注意不是成功申請成為師徒就有技能效果的，需要打滿修練點數1000點，點擊完成後，技能才生效。</div>
+                        <div class="img-pair" style="margin-top:1rem;">
+                            <div><img src="https://i.ibb.co/tpH5FjDk/QQ20260423-185014.png" alt="師徒申請畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒申請畫面';"><div class="img-caption">📋 師徒申請畫面</div></div>
+                            <div><img src="https://i.ibb.co/h1V1sZnb/QQ20260423-185920.png" alt="師徒綁定後畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒綁定畫面';"><div class="img-caption">🔗 師徒綁定後畫面</div></div>
+                        </div>
+                    </div>
                 </div>
-                <div style="margin-top:1rem;"><strong>02. 快速提升ARC方法：</strong><br>在職業中心領取聯盟硬幣後到村莊找聯盟硬幣商店，購買最下面的<strong>祕法觸媒</strong>。<br>將祕法觸媒使用在至少兩等的ARC上，之後可以放到倉庫。<br>利用分身的角色等級獎勵中的ARC交換券便可快速升級。<br>吃滿後再傳回本尊恢復。</div>
-                <img src="https://i.ibb.co/Y7MYrSWn/1.png" alt="快速ARC操作示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=快速ARC示意圖';"><div class="img-caption">⚙️ 快速ARC操作示意圖</div>
-                <p>🎥 影片操作可以參考：<a href="https://discord.com/channels/1082631479730896937/1289625444638916679/1451928255270621286" target="_blank">Discord 教學影片連結</a>（需登入 Discord）</p>
+                <div class="custom-collapse" style="margin-top:1rem;">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <span>⚡ 02. 快速提升ARC方法 [點我展開]</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div>在職業中心領取聯盟硬幣後到村莊找聯盟硬幣商店，購買最下面的<strong>祕法觸媒</strong>。<br>將祕法觸媒使用在至少兩等的ARC上，之後可以放到倉庫。<br>利用分身的角色等級獎勵中的ARC交換券便可快速升級。<br>吃滿後再傳回本尊恢復。</div>
+                        <img src="https://i.ibb.co/Y7MYrSWn/1.png" alt="快速ARC操作示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=快速ARC示意圖';"><div class="img-caption">⚙️ 快速ARC操作示意圖</div>
+                        <p>🎥 影片操作可以參考：<a href="https://discord.com/channels/1082631479730896937/1289625444638916679/1451928255270621286" target="_blank">Discord 教學影片連結</a>（需登入 Discord）</p>
+                    </div>
+                </div>
             </div>
-
             <div class="maple-leaf-bg">🍁💬</div>
         </div>
     </div>
@@ -712,7 +681,7 @@
         </div>
     </div>
 
-    <!-- 更新日誌（保持原有完整內容不變） -->
+    <!-- 更新日誌（完整版本，v1.0.7 合併 v1.0.7.1） -->
     <div class="maple-slide" id="slide-changelog">
         <div class="slide-header">
             <span class="title-icon">📋🕒</span>
@@ -722,156 +691,71 @@
         <div class="slide-content">
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
-                    <span class="version">📅 v1.0.7 (2025-04-28)</span>
+                    <span class="version">📅 v1.0.7 (2025-04-28) 含 v1.0.7.1</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="changelog-content">
                     <ul>
-                        <li><strong>【新增內容】</strong>
-                            <ul><li>術語百科：新增「常用簡稱介紹」區塊，幫助新手快速融入社群交流。</li></ul>
-                        </li>
-                        <li><strong>【介面與視覺優化】</strong>
-                            <ul>
-                                <li>排版精進：全面優化頁面布局與圖片渲染效率。</li>
-                                <li>視覺更新：更新「BOSS 翻牌」說明圖示。</li>
-                                <li>多圖並排：針對「帶尾廣播」、「貨幣 G 交易」、「變身藥水」之示意圖進行並排對齊，提升對比閱讀體驗。</li>
-                            </ul>
-                        </li>
+                        <li><strong>【新增內容】</strong><ul><li>術語百科： 新增「常用簡稱介紹」區塊，協助新手快速理解社群常用術語，降低溝通門檻。</li></ul></li>
+                        <li><strong>【介面與視覺優化】</strong><ul>
+                            <li>全局排版： 全面優化頁面佈局與圖片渲染效率，大幅提升載入速度。</li>
+                            <li>視覺更新： 更新「BOSS 翻牌」說明圖示，提供更清晰的規則指引。</li>
+                            <li>多圖並排： 針對「帶尾廣播」、「貨幣 G 交易」、「變身藥水」示意圖進行水平對齊優化，強化對比閱讀體驗。</li>
+                            <li>圖片定位優化： 針對部分圖片位置進行精確校對與重新編排，確保顯示頁面能看清。 (v1.0.7.1)</li>
+                            <li>文本優化： 將部分內容進行可縮展化與重新編排，減少頁面初始顯示內容。 (v1.0.7.1)</li>
+                        </ul></li>
                     </ul>
                 </div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0.6 (2025-04-25)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li><strong>【功能增強】</strong>
-                            <ul>
-                                <li>導航優化：封面頁新增「快捷卷軸」跳轉提示，提升操作直覺性。</li>
-                                <li>日誌管理：更新日誌導入「可收合式列表」，節省頁面空間。</li>
-                                <li>架構優化：重構底層代碼，合併冗餘 CSS、精簡 JavaScript 並強化無障礙支援。</li>
-                            </ul>
-                        </li>
-                        <li><strong>【修正與調整】</strong>
-                            <ul>
-                                <li>數值補充：修正「怪物公園」頁面描述，明確標註「組滿 6 人才能獲得最大經驗」並優化排版。</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li><strong>【功能增強】</strong><ul><li>導航優化：封面頁新增「快捷卷軸」跳轉提示，提升操作直覺性。</li><li>日誌管理：更新日誌導入「可收合式列表」，節省頁面空間。</li><li>架構優化：重構底層代碼，合併冗餘 CSS、精簡 JavaScript 並強化無障礙支援。</li></ul></li><li><strong>【修正與調整】</strong><ul><li>數值補充：修正「怪物公園」頁面描述，明確標註「組滿 6 人才能獲得最大經驗」並優化排版。</li></ul></li></ul></div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0.5 (2025-04-23)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li><strong>【架構重組】</strong>
-                            <ul>
-                                <li>百科轉型：原「結尾」頁面轉型為「小提示｜日常・常識・小技巧」，內容大幅擴充。</li>
-                                <li>資訊整合：新增「260 等後方針」、「裝備與楓幣獲取」、「ARC 符文操作技巧」。</li>
-                                <li>模組遷移：原 ARC 頁面的「快速提升攻略」正式併入「小提示」頁面。</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li><strong>【架構重組】</strong><ul><li>百科轉型：原「結尾」頁面轉型為「小提示｜日常・常識・小技巧」，內容大幅擴充。</li><li>資訊整合：新增「260 等後方針」、「裝備與楓幣獲取」、「ARC 符文操作技巧」。</li><li>模組遷移：原 ARC 頁面的「快速提升攻略」正式併入「小提示」頁面。</li></ul></li></ul></div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0.4 (2025-04-23)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li><strong>【系統與介面】</strong>
-                            <ul>
-                                <li>導航修復：修復首頁跳轉至「六轉 HEXA」頁面的邏輯錯誤。</li>
-                                <li>UI 簡化：移除封面跳轉按鈕，統一使用右側快捷選單以維持視覺簡潔。</li>
-                                <li>品牌重塑：封面歡迎詞更新為「歡迎來到貓貓谷新手冒險指南...」。</li>
-                            </ul>
-                        </li>
-                        <li><strong>【頁面深度優化】</strong>
-                            <ul>
-                                <li>HEXA 強化：六轉頁面新增「春天以後的 AUT 地圖」預覽，並導入專屬「六芒星」圖標。</li>
-                                <li>圖表對齊：星力系統調整圖片排序；戰地聯盟與五轉 V 矩陣採用並排顯示。</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li><strong>【系統與介面】</strong><ul><li>導航修復：修復首頁跳轉至「六轉 HEXA」頁面的邏輯錯誤。</li><li>UI 簡化：移除封面跳轉按鈕，統一使用右側快捷選單以維持視覺簡潔。</li><li>品牌重塑：封面歡迎詞更新為「歡迎來到貓貓谷新手冒險指南...」。</li></ul></li><li><strong>【頁面深度優化】</strong><ul><li>HEXA 強化：六轉頁面新增「春天以後的 AUT 地圖」預覽，並導入專屬「六芒星」圖標。</li><li>圖表對齊：星力系統調整圖片排序；戰地聯盟與五轉 V 矩陣採用並排顯示。</li></ul></li></ul></div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0.3 (2025-04-23)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li><strong>【視覺與邏輯】</strong>
-                            <ul>
-                                <li>符文視覺：ARC 頁面新增「AUT 真實力量」與「真實符文選擇券」並排對照。</li>
-                                <li>HEXA 重構：重新梳理六轉文字流，將「HEXA 矩陣」與「核心碎片」圖片整合。</li>
-                                <li>機制細分：「BOSS 翻牌車」頁面細化為每日積分、獨立獎勵、翻牌獎勵三大項。</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li><strong>【視覺與邏輯】</strong><ul><li>符文視覺：ARC 頁面新增「AUT 真實力量」與「真實符文選擇券」並排對照。</li><li>HEXA 重構：重新梳理六轉文字流，將「HEXA 矩陣」與「核心碎片」圖片整合。</li><li>機制細分：「BOSS 翻牌車」頁面細化為每日積分、獨立獎勵、翻牌獎勵三大項。</li></ul></li></ul></div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0.2 (2025-04-23)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li><strong>【底層優化】</strong>
-                            <ul>
-                                <li>鏡像部署：優化網址鏡像，解決安全性警告問題，並實現網址永久固定。</li>
-                                <li>導航系統：正式實裝右下角「快捷選單」懸浮按鈕。</li>
-                                <li>易讀性修正：針對字體大小、排版間距進行全局微調。</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li><strong>【底層優化】</strong><ul><li>鏡像部署：優化網址鏡像，解決安全性警告問題，並實現網址永久固定。</li><li>導航系統：正式實裝右下角「快捷選單」懸浮按鈕。</li><li>易讀性修正：針對字體大小、排版間距進行全局微調。</li></ul></li></ul></div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0.1 (2025-04-22)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li><strong>【核心功能】</strong>
-                            <ul>
-                                <li>流程引導：新增「組中」詳細作業流程說明。</li>
-                                <li>背景資訊：導入「貓貓谷系統」詳細背景與架構介紹。</li>
-                                <li>攻略補完：初步建立 ARC 快速升級指南與文本糾錯。</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li><strong>【核心功能】</strong><ul><li>流程引導：新增「組中」詳細作業流程說明。</li><li>背景資訊：導入「貓貓谷系統」詳細背景與架構介紹。</li><li>攻略補完：初步建立 ARC 快速升級指南與文本糾錯。</li></ul></li></ul></div>
             </div>
-
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
                     <span class="version">📅 v1.0 (2025-04-22)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
-                <div class="changelog-content">
-                    <ul>
-                        <li>正式上線：指南網頁版正式發布，全面支援圖文並茂的瀏覽體驗。</li>
-                    </ul>
-                </div>
+                <div class="changelog-content"><ul><li>正式上線：指南網頁版正式發布，全面支援圖文並茂的瀏覽體驗。</li></ul></div>
             </div>
-
             <div class="maple-leaf-bg">📝</div>
         </div>
     </div>
@@ -895,6 +779,13 @@
     });
 
     function toggleChangelog(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('.toggle-icon');
+        content.classList.toggle('show');
+        icon.textContent = content.classList.contains('show') ? '▲' : '▼';
+    }
+
+    function toggleCollapse(header) {
         const content = header.nextElementSibling;
         const icon = header.querySelector('.toggle-icon');
         content.classList.toggle('show');
