@@ -138,21 +138,21 @@
 
         /* 可收合更新日誌 */
         .changelog-item{
-            margin-bottom:1rem;border-radius:24px;background:#f7efda;
+            margin-bottom:1.2rem;border-radius:24px;background:#f7efda;
             border-left:12px solid #d99938;overflow:hidden;transition:all .2s;
         }
         .changelog-header{
             display:flex;justify-content:space-between;align-items:center;
-            padding:.8rem 1.5rem;cursor:pointer;background:#f7efda;
-            font-weight:bold;font-size:1rem;font-family:'Press Start 2P',cursive;
+            padding:.9rem 1.6rem;cursor:pointer;background:#f7efda;
+            font-weight:bold;font-size:1.05rem;font-family:'Press Start 2P',cursive;
             transition:background .2s;
         }
         .changelog-header:hover{background:#efe2c9}
         .changelog-content{
-            padding:0 1.5rem;max-height:0;overflow:hidden;
+            padding:0 1.6rem;max-height:0;overflow:hidden;
             transition:max-height .3s ease-out,padding .3s ease;background:#fdf8e7;
         }
-        .changelog-content.show{max-height:800px;padding:.8rem 1.5rem 1.2rem}
+        .changelog-content.show{max-height:950px;padding:1rem 1.6rem 1.4rem}
 
         @media (max-width:720px){
             .scroll-nav{right:10px}
@@ -185,7 +185,7 @@
             <li><a href="#" data-target="sixth"><i class="fas fa-star-of-david"></i> 六轉HEXA</a></li>
             <li><a href="#" data-target="boss"><i class="fas fa-skull"></i> BOSS翻牌</a></li>
             <li><a href="#" data-target="promotion"><i class="fas fa-chalkboard-user"></i> 推廣教學</a></li>
-            <li><a href="#" data-target="guild"><i class="fas fa-handshake"></i> 小提示</a></li>
+            <li><a href="#" data-target="guild"><i class="fas fa-handshake"></i> 常用簡稱&小技巧</a></li>
             <li><a href="#" data-target="summary"><i class="fas fa-clipboard-list"></i> 快速總結</a></li>
             <li><a href="#" data-target="changelog"><i class="fas fa-history"></i> 更新日誌</a></li>
         </ul>
@@ -194,6 +194,7 @@
 </div>
 
 <div class="slides-container">
+
     <!-- 封面頁 -->
     <div class="maple-slide" id="slide-cover">
         <div class="slide-header">
@@ -244,6 +245,9 @@
             <div class="maple-quote" style="background: #f9efdb; border-radius: 32px; padding: 12px 20px; margin: 16px 0; border: 1px solid #f2daa4;">
                 <i class="fas fa-comment-dots"></i> 貓貓谷主打「好玩不花錢」，每月放送大量福利，線下聚會活動豐富，歡迎一起來冒險！
             </div>
+            <div class="highlight-box" style="background: #fef0e0; border-left-color: #e67e22; margin-top: 1rem;">
+                <strong>⚠️ 重要提示：</strong> 新手入谷請一定要把 <a href="https://discord.com/channels/1082631479730896937/1250834372991647776" target="_blank"><strong>🔔✧˖˚伺服器規章</strong></a> 跟 <a href="https://discord.com/channels/1082631479730896937/1087927501122195516" target="_blank"><strong>🔔✧˖˚巡圖規章</strong></a> 都看一遍，已經有很多不看規章導致帳號被鎖了的，為了你的帳號心血著想，請仔細查閱，不要觸犯違規事項。
+            </div>
             <div class="maple-leaf-bg">🐱🍁</div>
         </div>
     </div>
@@ -286,7 +290,7 @@
         </div>
     </div>
 
-    <!-- 入谷操作＋初始獎勵 -->
+    <!-- 入谷操作 -->
     <div class="maple-slide" id="slide-start">
         <div class="slide-header">
             <span class="title-icon">🐧🎒</span>
@@ -304,7 +308,7 @@
         </div>
     </div>
 
-    <!-- 獎勵中心｜資源貨幣＆等級獎勵 -->
+    <!-- 獎勵中心 -->
     <div class="maple-slide" id="slide-reward">
         <div class="slide-header">
             <span class="title-icon">📦👻</span>
@@ -359,7 +363,7 @@
         </div>
     </div>
 
-    <!-- 星力相關系統 -->
+    <!-- 星力系統 -->
     <div class="maple-slide" id="slide-starforce">
         <div class="slide-header">
             <span class="title-icon">⭐🪐</span>
@@ -387,7 +391,7 @@
         </div>
     </div>
 
-    <!-- 五轉相關 V矩陣 -->
+    <!-- 五轉 V矩陣 -->
     <div class="maple-slide" id="slide-fifth">
         <div class="slide-header">
             <span class="title-icon">🦋✨</span>
@@ -407,7 +411,7 @@
         </div>
     </div>
 
-    <!-- ARC & AUT 相關 -->
+    <!-- ARC & AUT -->
     <div class="maple-slide" id="slide-arc">
         <div class="slide-header">
             <span class="title-icon">🐦🌿</span>
@@ -428,7 +432,7 @@
         </div>
     </div>
 
-    <!-- 怪物公園（兩段文字已拆分為兩行） -->
+    <!-- 怪物公園 -->
     <div class="maple-slide" id="slide-monsterpark">
         <div class="slide-header">
             <span class="title-icon">🐲🎒</span>
@@ -437,9 +441,7 @@
         </div>
         <div class="slide-content">
             <p>進入方式：選單 -> 副本傳送 -> 特殊副本 -> 怪物公園。</p><img src="https://i.ibb.co/1G64Jwns/42.png" alt="怪公相關" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=怪公相關';"><div class="img-caption">🏞️ 怪物公園入口</div>
-            <!-- 第一段：經驗說明 -->
             <p>只要角色等級為231等以下，打一場就會直接升到231等，總共8場可達到260等，但前提是要組滿6人，人數越少經驗會大量減少。</p>
-            <!-- 第二段：找團方式 -->
             <p>新人要找怪公的團，主要依靠遊戲內的廣播，看廣播有人喊 「11S 怪公 -3人 可換不創」，此類廣播就過去喊++後等人組你，也可以自己開團喊廣。</p>
             <img src="https://i.ibb.co/JWQbGb1P/43.png" alt="看廣播有人喊" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=看廣播有人喊';"><div class="img-caption">📢 廣播找怪公團</div>
             <p>也可以在組滿人後設置密碼，讓換角色的人喊對應密碼，避免出現組錯人的情況。</p><img src="https://i.ibb.co/HfpFhT0v/44.png" alt="喊對應密碼" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=喊對應密碼';"><div class="img-caption">🔐 設置密碼，換角色時喊密碼</div>
@@ -475,7 +477,7 @@
         </div>
     </div>
 
-    <!-- 六轉｜HEXA 系統 -->
+    <!-- 六轉 HEXA -->
     <div class="maple-slide" id="slide-sixth">
         <div class="slide-header">
             <span class="title-icon">🔯</span>
@@ -493,7 +495,7 @@
         </div>
     </div>
 
-    <!-- BOSS每日任務｜翻牌車流程 -->
+    <!-- BOSS翻牌 -->
     <div class="maple-slide" id="slide-boss">
         <div class="slide-header">
             <span class="title-icon">🐤👑</span>
@@ -501,7 +503,11 @@
             <div class="page-stamp">Boss Rush</div>
         </div>
         <div class="slide-content">
-            <p>每日BOSS的三個任務都可以跟著翻牌車進行。其中每日BOSS積分如果有購買喵喵月卡，可以自動獲得低階BOSS積分。</p><img src="https://i.ibb.co/C55S8nM6/49.png" alt="BOSS的三個任務" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=BOSS的三個任務';"><div class="img-caption">📋 BOSS每日三個任務</div>
+            <p>每日BOSS的三個任務都可以跟著翻牌車進行。其中每日BOSS積分如果有購買喵喵月卡，可以自動獲得低階BOSS積分。</p>
+            <div class="img-pair">
+                <div><img src="https://i.ibb.co/C55S8nM6/49.png" alt="BOSS的三個任務" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=BOSS的三個任務';"><div class="img-caption">📋 BOSS每日三個任務</div></div>
+                <div><img src="https://i.ibb.co/C5Xf8Qfm/image.png" alt="翻牌車BOSS清單" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9E0A0/7A4C1E?text=翻牌車BOSS清單';"><div class="img-caption">🎯 翻牌車BOSS清單</div></div>
+            </div>
             <p>多數翻牌車順序：天使綠水靈 -> 戴斯克 -> 頓凱爾 -> 希拉 -> 露西妲 -> 戴米安 -> 史烏（也有可能史烏先）。除了露西妲打3場（困+普+簡），其他都打2場（困+普），全程需要關閉寵撿，物品歸帶翻牌的人所有。</p>
             <p><strong>每日BOSS獨立獎勵</strong>打完對應BOSS即可獲得，大多是給予裝備製作材料或是裝備強化硬幣。</p>
             <p><strong>每日BOSS積分</strong>至少打滿100分數拿滿楓點獎勵，分數越高可額外獲得六轉核心氣息。</p>
@@ -512,7 +518,7 @@
         </div>
     </div>
 
-    <!-- 推廣推文教學 -->
+    <!-- 推廣教學 -->
     <div class="maple-slide" id="slide-promotion">
         <div class="slide-header">
             <span class="title-icon">📢💬</span>
@@ -537,28 +543,85 @@
         </div>
     </div>
 
-    <!-- 小提示｜日常・常識・小技巧 -->
+    <!-- 常用簡稱＆小技巧 -->
     <div class="maple-slide" id="slide-guild">
         <div class="slide-header">
             <span class="title-icon">🍄🤝</span>
-            <h2>小提示｜日常・常識・小技巧</h2>
+            <h2>常用簡稱介紹與小技巧</h2>
             <div class="page-stamp">Tips & Info</div>
         </div>
         <div class="slide-content">
             <div class="highlight-box" style="border-left-color:#d99938;">
-                <strong>🔹 260等後要做什麼：</strong><br>推薦找個公會加入，除了可找到比較固定的BOSS翻牌車、組中車、怪公車，大部分公會也有提供給新人的整套新手裝備（神秘+滅龍），可以幫助快速起家。<br>但這邊公會通常不會主動收人，需到自行找對應公會的聯繫人。<br>🔗 <a href="https://discord.com/channels/1082631479730896937/1295310308252057650" target="_blank">DC公會專區</a><br>後續每日就是把必做任務做完，跟BOSS翻牌車領取獎勵，慢慢累積資本更換裝備，戰地42隻角色慢慢練到250等取得SSS卡。<br>目標至少主屬達到8萬開始嘗試創世武器任務，黑魔法師可以找人帶躺，但軍團長都需自己單打，建議主屬10萬以上會較輕鬆。
+                <strong>🔹 260等後要做什麼：</strong><br>
+                推薦找個公會加入，除了可找到比較固定的BOSS翻牌車、組中車、怪公車，大部分公會也有提供給新人的整套新手裝備（神秘+滅龍），可以幫助快速起家。<br>
+                但這邊公會通常不會主動收人，需到自行找對應公會的聯繫人。<br>
+                🔗 <a href="https://discord.com/channels/1082631479730896937/1295310308252057650" target="_blank">DC公會專區</a><br>
+                後續每日就是把必做任務做完，跟BOSS翻牌車領取獎勵，慢慢累積資本更換裝備，戰地42隻角色慢慢練到250等取得SSS卡。<br>
+                目標至少主屬達到8萬開始嘗試創世武器任務，黑魔法師可以找人帶躺，但軍團長都需自己單打，建議主屬10萬以上會較輕鬆。
             </div>
+
             <div class="highlight-box" style="border-left-color:#b68b40;">
-                <strong>💰 如何獲得裝備與楓幣：</strong><br>楓幣可以依靠野外圖刷怪來獲得，裝備主要來源為BOSS掉落以及BOSS獨立獎勵的素材，可在選單的製作中心進行製作，也可直接跟玩家收購（利用拍賣場、開廣喊話等方式）。<br><strong>⚠️ 禁止現金交易：</strong> 貓貓谷不允許現金交易，只能使用代斗收購。如果有意圖現金交易的情形都可進行舉報，被舉報方會被封禁帳號，而舉報方可以獲得被舉報方的帳號資源。<br>經常可以在廣播上看到「收賣幣/代斗 1:400G」的相關廣播：買幣/代斗，也就是你跟對方要遊戲帳號後找橘貓開單，充錢到對方帳號，對方入帳後給你楓幣或對應價值物。賣幣也就是反過來對方充值到你的帳號。<br>比例 1:400G 就是1單：400E楓幣，1單就是1000T（台幣），1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在選單-商店-貨幣兌換裡面交換。
+                <strong>💰 如何獲得裝備與楓幣：</strong><br>
+                楓幣可以依靠野外圖刷怪來獲得，裝備主要來源為BOSS掉落以及BOSS獨立獎勵的素材，可在選單的製作中心進行製作，也可直接跟玩家收購（利用拍賣場、開廣喊話、DC頻道等方式）。<br>
+                <strong>⚠️ 禁止現金交易：</strong> 貓貓谷不允許現金交易，只能使用代斗收購。如果有意圖現金交易的情形都可進行舉報，被舉報方會被封禁帳號，而舉報方可以獲得被舉報方的帳號資源。<br>
+                經常可以在廣播上看到「收賣幣/代斗 1:400G」的相關廣播：買幣/代斗，也就是你跟對方要遊戲帳號後找橘貓開單，充錢到對方帳號，對方入帳後給你楓幣或對應價值物。賣幣也就是反過來對方充值到你的帳號。<br>
+                比例 1:400G 就是1單：400E楓幣，1單就是1000T（台幣），1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在選單-商店-貨幣兌換裡面交換。
             </div>
-            <div class="img-pair"><div><img src="https://i.ibb.co/7t18Vgw5/QQ20260423-190003.png" alt="廣播收賣幣圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播收賣幣';"><div class="img-caption">📢 廣播收賣幣範例</div></div><div><img src="https://i.ibb.co/V0DyCc1t/QQ20260422-042328.png" alt="貨幣G交易示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=貨幣G交易';"><div class="img-caption">💱 貨幣G交易示意圖</div></div></div>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/7t18Vgw5/QQ20260423-190003.png" alt="廣播收賣幣圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=廣播收賣幣';">
+                    <div class="img-caption">📢 廣播收賣幣範例</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/4ZwgLQSW/QQ20260428-185556.png" alt="DC頻道示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=DC頻道示意圖';">
+                    <div class="img-caption">💬 DC頻道交易示意</div>
+                </div>
+            </div>
+
             <div class="highlight-box" style="border-left-color:#2e7d32;">
                 <strong>🌀 ARC符文小技巧</strong>
                 <div style="margin-top:1rem;"><strong>01. 符文升級費用免除：</strong><br>玩家可以利用師徒技能提供的效果：讓ARC符文在15等之前的成長升級不再需要花費楓幣，可以大量節省楓幣的花費支出。<br>師徒頁面開啟方式為ESC選單 -> 師徒系統，在沒有綁定師徒前會打開申請面板，可以在面板中選擇其他玩家申請師徒關係。<br>（如果無法開啟師徒頁面，需要到職業中心 -> 師徒任務進行重置後，點擊頭上燈泡執行任務後才可使用）<br>但要注意不是成功申請成為師徒就有技能效果的，需要打滿修練點數1000點，點擊完成後，技能才生效。</div>
-                <div class="img-pair" style="margin-top:1rem;"><div><img src="https://i.ibb.co/tpH5FjDk/QQ20260423-185014.png" alt="師徒申請畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒申請畫面';"><div class="img-caption">📋 師徒申請畫面</div></div><div><img src="https://i.ibb.co/h1V1sZnb/QQ20260423-185920.png" alt="師徒綁定後畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒綁定畫面';"><div class="img-caption">🔗 師徒綁定後畫面</div></div></div>
+                <div class="img-pair" style="margin-top:1rem;">
+                    <div><img src="https://i.ibb.co/tpH5FjDk/QQ20260423-185014.png" alt="師徒申請畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒申請畫面';"><div class="img-caption">📋 師徒申請畫面</div></div>
+                    <div><img src="https://i.ibb.co/h1V1sZnb/QQ20260423-185920.png" alt="師徒綁定後畫面截圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=師徒綁定畫面';"><div class="img-caption">🔗 師徒綁定後畫面</div></div>
+                </div>
                 <div style="margin-top:1rem;"><strong>02. 快速提升ARC方法：</strong><br>在職業中心領取聯盟硬幣後到村莊找聯盟硬幣商店，購買最下面的<strong>祕法觸媒</strong>。<br>將祕法觸媒使用在至少兩等的ARC上，之後可以放到倉庫。<br>利用分身的角色等級獎勵中的ARC交換券便可快速升級。<br>吃滿後再傳回本尊恢復。</div>
                 <img src="https://i.ibb.co/Y7MYrSWn/1.png" alt="快速ARC操作示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=快速ARC示意圖';"><div class="img-caption">⚙️ 快速ARC操作示意圖</div>
                 <p>🎥 影片操作可以參考：<a href="https://discord.com/channels/1082631479730896937/1289625444638916679/1451928255270621286" target="_blank">Discord 教學影片連結</a>（需登入 Discord）</p>
+            </div>
+
+            <div class="highlight-box" style="border-left-color:#8e44ad;">
+                <strong>📖 貓貓谷常用俗語簡稱</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                    <li><strong>組中</strong>：組隊任務+終極怪物公園的簡稱，通常從組隊任務開始，在組隊任務地圖進行組隊(貓貓選單->副本傳送->組隊任務)</li>
+                    <li><strong>普怪車</strong>：普通怪物公園，主要練等用，通常組滿6人後才開打，在怪物公園地圖進行組隊(貓貓選單->副本傳送->特殊副本->怪物公園)</li>
+                    <li><strong>翻牌車</strong>：每日翻牌BOSS打一輪，具體介紹可以查看BOSS翻牌頁面，組隊位置以喊的人所說的開頭為主，天綠往上就是在天使綠水靈地圖組隊，史烏往下就是在史烏地圖組隊 (貓貓選單->副本傳送->英雄BOSS)</li>
+                    <li><strong>黑賽狗咖/林馬迪</strong>：對應BOSS為黑魔法師(260等)->賽蓮(270等)->監視者[卡洛斯](275等)->咖凌(285等)->林波(285等)->人馬[巴德利斯](285等)->最初的敵對者(290等)。需要達到對應的等級才能夠入場，因此跟車前如果等級不夠最好跟隊長說明下只跟到哪隻BOSS。</li>
+                    <li><strong>躺/帶尾</strong>：通常會帶上以上BOSS簡稱來說明有哪些BOSS，躺車跟翻牌車是一樣的，你只需要等BOSS死亡就行了，東西歸帶的人所有，主要是為了BOSS翻牌與BOSS積分的獎勵。帶尾車是你花錢找人幫你把BOSS打到最後一階的殘血後對方退組，你自己把BOSS收掉，東西歸你。注意帶尾車只限黑賽狗咖這些BOSS，林馬迪這幾隻都是禁止帶尾的，抓到會BAN帳號。</li>
+                    <li><strong>變身</strong>：主要用在幾個高階BOSS的躺車，由於這些BOSS大多有特殊機制，機制滿了或是死亡次數用完都會導致失敗退出，為了避免此情況，可以利用變身藥水來逃課。<br>
+                    主要變身為「Mr.海查德的部下A」，可以無視大部分的BOSS機制與傷害，當躺車結束要變回來的話需要使用綠色橘子，選擇變身蝸牛後，就可以從右上角的BUFF欄位找蝸牛圖標點右鍵來取消變身。<br>
+                    <strong>變身注意事項：</strong><br>
+                    1.要注意變身終究不是無敵，還是有可能會吃到傷害導致死亡，死掉復活會解除變身，要再使用一次變身藥水。<br>
+                    2.在副本內是無法打開選單解除變身的，因此如果是尾車，不要變身入場。<br>
+                    3.變身會導致無法使用道具以及交互，需要過圖一次後才能恢復正常，因此都是在BOSS門前才變身，不要提前變身導致無法打開選單傳送。</li>
+                    <li><strong>買幣/代斗</strong>：你跟對方要遊戲帳號後DC找GM橘貓開單，充值到對方遊戲帳號，對方入帳後給你對應楓幣或對應價值物。賣幣也就是反過來對方充值到你的遊戲帳號。</li>
+                    <li><strong>1單是多少</strong>：1單就是1000T（台幣），要注意由於貓貓谷不允許現金交易，買賣不要出現T/85/LP之類的字詞，可能會被判定是意圖現金交易。</li>
+                    <li><strong>1G是多少</strong>：1G就是1E楓幣。這邊交易都用金幣簡稱G，可以避免手續費，在貓貓選單-遊戲商店-貨幣兌換裡面交換。注意不要直接把金幣賣商店或是丟棄到地板，導致的損失GM不賠償。</li>
+                </ul>
+            </div>
+            <div class="img-pair">
+                <div>
+                    <img src="https://i.ibb.co/V0DyCc1t/QQ20260422-042328.png" alt="貨幣G交易示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=貨幣G交易';">
+                    <div class="img-caption">💱 貨幣G交易示意圖</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/SwPKHdT5/QQ20260428-183631.png" alt="變身藥水示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=變身藥水示意圖';">
+                    <div class="img-caption">🧪 變身藥水示意圖</div>
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/DfvFYjtH/QQ20260428-193654.png" alt="帶尾廣播示意圖" onerror="this.onerror=null; this.src='https://placehold.co/800x400/F9E0A0/7A4C1E?text=帶尾廣播示意圖';">
+                    <div class="img-caption">📢 帶尾廣播示意圖</div>
+                </div>
             </div>
             <div class="maple-leaf-bg">🍁💬</div>
         </div>
@@ -583,7 +646,7 @@
         </div>
     </div>
 
-    <!-- 更新日誌 PAGE（1.0.6 版本已記錄本次修改） -->
+    <!-- 更新日誌（優化後最終版） -->
     <div class="maple-slide" id="slide-changelog">
         <div class="slide-header">
             <span class="title-icon">📋🕒</span>
@@ -593,34 +656,156 @@
         <div class="slide-content">
             <div class="changelog-item">
                 <div class="changelog-header" onclick="toggleChangelog(this)">
-                    <span class="version">📅 1.0.6 版本更新（2025/04/25）</span>
+                    <span class="version">📅 v1.0.7 (2025-04-28)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="changelog-content">
                     <ul>
-                        <li><strong>新增</strong>
-                            <ul>
-                                <li>封面頁新增小提示：右下角卷軸可快速跳轉頁面。</li>
-                                <li>更新日誌改為可收合式列表，提升閱讀體驗。</li>
-                                <li>整體程式碼優化：合併 CSS 重複規則、精簡 JavaScript、添加無障礙支援。</li>
-                            </ul>
+                        <li><strong>【新增內容】</strong>
+                            <ul><li>術語百科：新增「常用簡稱介紹」區塊，幫助新手快速融入社群交流。</li></ul>
                         </li>
-                        <li><strong>修正</strong>
+                        <li><strong>【介面與視覺優化】</strong>
                             <ul>
-                                <li>移除內容：移除 Herobrine 與超強。</li>
-                                <li>修正怪物公園頁面文字描述，補充「組滿6人才能獲得最大經驗」的重要說明，並將兩段文字分行顯示。</li>
+                                <li>排版精進：全面優化頁面布局與圖片渲染效率。</li>
+                                <li>視覺更新：更新「BOSS 翻牌」說明圖示。</li>
+                                <li>多圖並排：針對「帶尾廣播」、「貨幣 G 交易」、「變身藥水」之示意圖進行並排對齊，提升對比閱讀體驗。</li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-            <!-- 其餘版本內容保持不變 -->
-            <div class="changelog-item"><div class="changelog-header" onclick="toggleChangelog(this)"><span class="version">📅 1.0.5 版本更新（2025/04/23）</span><span class="toggle-icon">▼</span></div><div class="changelog-content"><ul><li><strong>修改</strong><ul><li>「結尾」頁面改為「小提示｜日常・常識・小技巧」，並大幅擴充內容。</li><li>新增「260等後要做什麼」、「如何獲得裝備與楓幣」、「ARC符文小技巧」等實用資訊。</li><li>將原 ARC 頁面中的「快速提升ARC方法」移動至本頁並整合。</li><li>新增並排顯示「交易圖片」與「師徒圖片」。</li></ul></li><li><strong>移除</strong><ul><li>ARC 頁面中原有的「快速提升ARC方法」區塊（已移至小提示頁面）。</li><li>移除內容：移除 Herobrine 與超強。</li></ul></li></ul></div></div>
-            <div class="changelog-item"><div class="changelog-header" onclick="toggleChangelog(this)"><span class="version">📅 1.0.4 版本更新（2025/04/23）</span><span class="toggle-icon">▼</span></div><div class="changelog-content"><ul><li><strong>修正</strong><ul><li>修復首頁快捷跳轉至「六轉HEXA」頁面功能失效的問題。</li><li>刪除首頁跳轉：移除封面頁的跳轉按鈕區域，僅保留右側快捷選單。</li><li>文字調整：將封面歡迎詞改為「歡迎來到貓貓谷新手冒險指南...」。</li><li>快速總結頁面：重新組織「角色成長系統」、「260等後」、「其他實用系統」等段落，新增 ARC 快速升級說明，修正 BOSS 翻牌車描述，補充推廣推文細節。</li><li>星力系統頁面：調整圖片順序與並排顯示。</li><li>戰地聯盟頁面：將傳授與戰地圖片並排顯示。</li><li>五轉頁面：將 V 矩陣核心放入凹槽與添加完成圖片並排顯示。</li><li>移除內容：移除 Herobrine 與超強。</li></ul></li><li><strong>新增</strong><ul><li>六轉頁面：新增「春天開始往後的AUT地圖」圖片，並調整為六芒星圖標。</li><li>右側快捷選單：為「六轉HEXA」選項新增六芒星圖標。</li></ul></li></ul></div></div>
-            <div class="changelog-item"><div class="changelog-header" onclick="toggleChangelog(this)"><span class="version">📅 1.0.3 版本更新（2025/04/23）</span><span class="toggle-icon">▼</span></div><div class="changelog-content"><ul><li><strong>新增</strong><ul><li>ARC頁面：將「AUT真實力量」與「真實符文選擇券」圖片並排顯示。</li><li>六轉頁面：重新組織文字與圖片順序，將 HEXA 矩陣與核心碎片圖片並排。</li></ul></li><li><strong>修正</strong><ul><li>BOSS翻牌車頁面：詳細拆分每日BOSS積分、獨立獎勵、翻牌獎勵的說明。</li><li>更新日誌：改為版本號格式（1.0 / 1.0.1 / 1.0.2 / 1.0.3）。</li><li>其他：最佳化部分頁面圖片排版與文字流暢度。</li><li>移除內容：移除 Herobrine 與超強。</li></ul></li></ul></div></div>
-            <div class="changelog-item"><div class="changelog-header" onclick="toggleChangelog(this)"><span class="version">📅 1.0.2 版本更新（2025/04/23）</span><span class="toggle-icon">▼</span></div><div class="changelog-content"><ul><li><strong>新增</strong><ul><li>快捷卷軸選單：頁面右下角新增快捷選單，方便快速跳轉至各個目錄。</li><li>推廣教學：新增推廣推文的詳細教學內容。</li><li>網址鏡像優化：修改網址鏡像，不再跳出安全性警告，且網址固定不再變動。</li></ul></li><li><strong>修正</strong><ul><li>網址失效：修復部分失效的網頁連結。</li><li>閱讀體驗：修正部分文字因字型與大小導致難以閱讀的問題。</li><li>排版優化：修改部分頁面的顯示排版與圖片位置。</li><li>移除內容：移除 Herobrine 與超強。</li></ul></li></ul></div></div>
-            <div class="changelog-item"><div class="changelog-header" onclick="toggleChangelog(this)"><span class="version">📅 1.0.1 版本更新（2025/04/22）</span><span class="toggle-icon">▼</span></div><div class="changelog-content"><ul><li><strong>新增</strong><ul><li>首頁跳轉功能：新增快速跳轉功能，可直達對應頁面。（註：此功能已於 1.0.4 移除）</li><li>組中詳細流程：新增詳細流程說明，並更新相關網址。</li><li>貓貓谷介紹：新增貓貓谷系統詳細介紹。</li><li>ARC 快速升級：新增 ARC 系統快速提升攻略。</li></ul></li><li><strong>修正</strong><ul><li>文本錯誤：修正部分文案與資訊錯誤。</li><li>圖片位置：調整部分圖片顯示位置以利閱讀。</li><li>移除內容：移除 Herobrine 與超強。</li></ul></li></ul></div></div>
-            <div class="changelog-item"><div class="changelog-header" onclick="toggleChangelog(this)"><span class="version">📅 1.0 版本（2025/04/22）</span><span class="toggle-icon">▼</span></div><div class="changelog-content"><ul><li>網頁版本上線：內容已重新整理為網頁版，可直接開啟查看圖文資訊。</li><li>移除內容：移除 Herobrine 與超強。</li></ul></div></div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0.6 (2025-04-25)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>【功能增強】</strong>
+                            <ul>
+                                <li>導航優化：封面頁新增「快捷卷軸」跳轉提示，提升操作直覺性。</li>
+                                <li>日誌管理：更新日誌導入「可收合式列表」，節省頁面空間。</li>
+                                <li>架構優化：重構底層代碼，合併冗餘 CSS、精簡 JavaScript 並強化無障礙支援。</li>
+                            </ul>
+                        </li>
+                        <li><strong>【修正與調整】</strong>
+                            <ul>
+                                <li>數值補充：修正「怪物公園」頁面描述，明確標註「組滿 6 人才能獲得最大經驗」並優化排版。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0.5 (2025-04-23)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>【架構重組】</strong>
+                            <ul>
+                                <li>百科轉型：原「結尾」頁面轉型為「小提示｜日常・常識・小技巧」，內容大幅擴充。</li>
+                                <li>資訊整合：新增「260 等後方針」、「裝備與楓幣獲取」、「ARC 符文操作技巧」。</li>
+                                <li>模組遷移：原 ARC 頁面的「快速提升攻略」正式併入「小提示」頁面。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0.4 (2025-04-23)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>【系統與介面】</strong>
+                            <ul>
+                                <li>導航修復：修復首頁跳轉至「六轉 HEXA」頁面的邏輯錯誤。</li>
+                                <li>UI 簡化：移除封面跳轉按鈕，統一使用右側快捷選單以維持視覺簡潔。</li>
+                                <li>品牌重塑：封面歡迎詞更新為「歡迎來到貓貓谷新手冒險指南...」。</li>
+                            </ul>
+                        </li>
+                        <li><strong>【頁面深度優化】</strong>
+                            <ul>
+                                <li>HEXA 強化：六轉頁面新增「春天以後的 AUT 地圖」預覽，並導入專屬「六芒星」圖標。</li>
+                                <li>圖表對齊：星力系統調整圖片排序；戰地聯盟與五轉 V 矩陣採用並排顯示。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0.3 (2025-04-23)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>【視覺與邏輯】</strong>
+                            <ul>
+                                <li>符文視覺：ARC 頁面新增「AUT 真實力量」與「真實符文選擇券」並排對照。</li>
+                                <li>HEXA 重構：重新梳理六轉文字流，將「HEXA 矩陣」與「核心碎片」圖片整合。</li>
+                                <li>機制細分：「BOSS 翻牌車」頁面細化為每日積分、獨立獎勵、翻牌獎勵三大項。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0.2 (2025-04-23)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>【底層優化】</strong>
+                            <ul>
+                                <li>鏡像部署：優化網址鏡像，解決安全性警告問題，並實現網址永久固定。</li>
+                                <li>導航系統：正式實裝右下角「快捷選單」懸浮按鈕。</li>
+                                <li>易讀性修正：針對字體大小、排版間距進行全局微調。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0.1 (2025-04-22)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li><strong>【核心功能】</strong>
+                            <ul>
+                                <li>流程引導：新增「組中」詳細作業流程說明。</li>
+                                <li>背景資訊：導入「貓貓谷系統」詳細背景與架構介紹。</li>
+                                <li>攻略補完：初步建立 ARC 快速升級指南與文本糾錯。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="changelog-item">
+                <div class="changelog-header" onclick="toggleChangelog(this)">
+                    <span class="version">📅 v1.0 (2025-04-22)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="changelog-content">
+                    <ul>
+                        <li>正式上線：指南網頁版正式發布，全面支援圖文並茂的瀏覽體驗。</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="maple-leaf-bg">📝</div>
         </div>
     </div>
