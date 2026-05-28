@@ -181,7 +181,49 @@
             align-self: start;
         }
         .grid-left-2, .grid-right-3 { align-self: end; }
+
+        .visit-counter{
+            position:fixed;
+            top:8px;
+            left:8px;
+            z-index:3000;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            padding:8px 12px;
+            border:2px solid #c9aa6f;
+            border-radius:16px;
+            background:rgba(253,248,231,.94);
+            color:#4e3b28;
+            font-size:13px;
+            font-weight:800;
+            line-height:1.35;
+            box-shadow:0 6px 16px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.75);
+            backdrop-filter:blur(3px);
+            -webkit-backdrop-filter:blur(3px);
+            user-select:none;
+        }
+        .visit-counter .counter-icon{
+            font-size:16px;
+            filter:drop-shadow(1px 1px 0 #f8e8bd);
+        }
+        .visit-counter .counter-text{
+            white-space:nowrap;
+        }
+        .visit-counter .counter-number{
+            color:#9b5a18;
+            font-weight:900;
+        }
+
         @media (max-width: 720px){
+
+            .visit-counter{
+                top:6px;
+                left:6px;
+                padding:6px 9px;
+                border-radius:13px;
+                font-size:12px;
+            }
             .custom-five-grid {
                 display: flex;
                 flex-direction: column;
@@ -203,6 +245,10 @@
     </style>
 </head>
 <body>
+<div class="visit-counter" id="visitCounter" aria-live="polite">
+    <span class="counter-icon">👀</span>
+    <span class="counter-text">今日訪問：<span class="counter-number" id="visitToday">讀取中</span>｜總訪問：<span class="counter-number" id="visitTotal">讀取中</span></span>
+</div>
 <div class="scroll-nav">
     <div class="nav-menu" id="navMenu">
         <ul>
@@ -887,6 +933,88 @@
         content.classList.toggle('show');
         icon.textContent = content.classList.contains('show') ? '▲' : '▼';
     }
+</script>
+
+
+<script>
+    (function () {
+        const COUNTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbxyFgioTFxht5DqM5738lfOIByIA1Rom7jhs3XynnMSYDSq9WzetrEHaM5IMbjw0DZ9/exec";
+        const PAGE_ID = "meowmaple_guide";
+        const STORAGE_KEY = "meowmaple_guide_visitor_id";
+        const TIMEOUT_MS = 15000;
+
+        const todayEl = document.getElementById("visitToday");
+        const totalEl = document.getElementById("visitTotal");
+
+        function setCounterText(today, total) {
+            if (todayEl) todayEl.textContent = today;
+            if (totalEl) totalEl.textContent = total;
+        }
+
+        function getVisitorId() {
+            try {
+                let visitorId = localStorage.getItem(STORAGE_KEY);
+                if (!visitorId) {
+                    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+                        visitorId = window.crypto.randomUUID();
+                    } else {
+                        visitorId = String(Date.now()) + "_" + Math.random().toString(36).slice(2);
+                    }
+                    localStorage.setItem(STORAGE_KEY, visitorId);
+                }
+                return visitorId;
+            } catch (error) {
+                return String(Date.now()) + "_" + Math.random().toString(36).slice(2);
+            }
+        }
+
+        const callbackName = "__meowmapleVisitCounter_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+        const script = document.createElement("script");
+        let finished = false;
+
+        const timer = window.setTimeout(function () {
+            if (finished) return;
+            finished = true;
+            setCounterText("讀取失敗", "讀取失敗");
+            cleanup();
+        }, TIMEOUT_MS);
+
+        function cleanup() {
+            window.clearTimeout(timer);
+            try { delete window[callbackName]; } catch (error) { window[callbackName] = undefined; }
+            if (script && script.parentNode) script.parentNode.removeChild(script);
+        }
+
+        window[callbackName] = function (data) {
+            if (finished) return;
+            finished = true;
+
+            if (data && data.ok && typeof data.today !== "undefined" && typeof data.total !== "undefined") {
+                setCounterText(String(data.today), String(data.total));
+            } else {
+                setCounterText("讀取失敗", "讀取失敗");
+                console.warn("訪問計數器回傳異常：", data);
+            }
+
+            cleanup();
+        };
+
+        script.src = COUNTER_ENDPOINT
+            + "?action=visitCounter"
+            + "&page=" + encodeURIComponent(PAGE_ID)
+            + "&visitor=" + encodeURIComponent(getVisitorId())
+            + "&callback=" + encodeURIComponent(callbackName)
+            + "&t=" + Date.now();
+        script.async = true;
+        script.onerror = function () {
+            if (finished) return;
+            finished = true;
+            setCounterText("讀取失敗", "讀取失敗");
+            cleanup();
+        };
+
+        document.body.appendChild(script);
+    })();
 </script>
 </body>
 </html>
