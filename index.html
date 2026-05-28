@@ -188,7 +188,7 @@
             left:8px;
             z-index:3000;
             display:flex;
-            align-items:center;
+            align-items:flex-start;
             gap:8px;
             padding:8px 12px;
             border:2px solid #c9aa6f;
@@ -207,8 +207,20 @@
             font-size:16px;
             filter:drop-shadow(1px 1px 0 #f8e8bd);
         }
+        .visit-counter .counter-content{
+            display:flex;
+            flex-direction:column;
+            gap:2px;
+        }
         .visit-counter .counter-text{
             white-space:nowrap;
+        }
+        .visit-counter .counter-maker{
+            display:block;
+            white-space:nowrap;
+            color:#6f4b2d;
+            font-size:12px;
+            font-weight:900;
         }
         .visit-counter .counter-number{
             color:#9b5a18;
@@ -247,7 +259,10 @@
 <body>
 <div class="visit-counter" id="visitCounter" aria-live="polite">
     <span class="counter-icon">👀</span>
-    <span class="counter-text">今日訪問：<span class="counter-number" id="visitToday">讀取中</span>｜總訪問：<span class="counter-number" id="visitTotal">讀取中</span></span>
+    <span class="counter-content">
+        <span class="counter-text">今日訪問：<span class="counter-number" id="visitToday">讀取中</span>｜總訪問：<span class="counter-number" id="visitTotal">讀取中</span></span>
+        <span class="counter-maker">製作人: 柚子糖</span>
+    </span>
 </div>
 <div class="scroll-nav">
     <div class="nav-menu" id="navMenu">
